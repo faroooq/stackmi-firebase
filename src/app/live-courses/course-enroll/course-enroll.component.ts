@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { HttpService } from '../../shared/services/http.service';
 import { AuthService } from '../../shared/services/auth-service';
+import { FirebaseService } from '../../shared/services/firebase.service';
 
 declare var jQuery: any;
 declare var $: any;
@@ -39,7 +40,7 @@ export class CourseEnrollComponent implements OnInit {
     public httpClient: HttpClient,
     public authService: AuthService,
     public auth: AuthService,
-    private activatedRoute: ActivatedRoute,
+    public firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -55,22 +56,18 @@ export class CourseEnrollComponent implements OnInit {
   getEventDetails(eventName) {
     this.user = this.auth.getUserDetails();
     this.loading = true;
-    this.http.get('event', eventName)
-      .subscribe(
-        data => {
-          this.event = data[0];
-          this.registerCourseForm.get('user_name')?.setValue(this.user?.user_name);
-          this.registerCourseForm.get('email')?.setValue(this.user?.email);
-          this.registerCourseForm.get('mobile')?.setValue(this.user?.mobile);
-          this.registerCourseForm.get('start_date')?.setValue(this.event?.start_date);
-          this.registerCourseForm.get('end_date')?.setValue(this.event?.end_date);
-          this.registerCourseForm.get('duration')?.setValue(this.event?.duration);
-          this.registerCourseForm.get('event_price')?.setValue(this.event?.event_price);
-          this.loading = false;
-        },
-        error => {
-          // console.log(error);
-        });
+
+    this.firebaseService.getEventDetails(eventName).subscribe((result) => {
+      this.event = result[0];
+      this.registerCourseForm.get('user_name')?.setValue(this.user?.user_name);
+      this.registerCourseForm.get('email')?.setValue(this.user?.email);
+      this.registerCourseForm.get('mobile')?.setValue(this.user?.mobile);
+      this.registerCourseForm.get('start_date')?.setValue(this.event?.start_date);
+      this.registerCourseForm.get('end_date')?.setValue(this.event?.end_date);
+      this.registerCourseForm.get('duration')?.setValue(this.event?.duration);
+      this.registerCourseForm.get('event_price')?.setValue(this.event?.event_price);
+      this.loading = false;
+    });
   }
 
   navigate(url) {
@@ -94,28 +91,22 @@ export class CourseEnrollComponent implements OnInit {
       form.append('duration', _v.duration);
       form.append('event_price', _v.event_price);
 
-      this.http.create('course_reg_users', value).subscribe(
-        (data) => {
-          this.loading = false;
-          this.successMsg = 'Thank you for enrolling the Course. We are redirecting you to payments gateway!';
-          setTimeout(() => {
-            this.router.navigate(['secure/payments',
-              {
-                name: _v.user_name,
-                course_name: _v.course_name,
-                start_date: _v.start_date,
-                end_date: _v.end_date,
-                duration: _v.duration,
-                event_price: _v.event_price
-              }
-            ])
-          }, 4000);
-        },
-        error => {
-          this.loading = false;
-          // console.log('err : ' + JSON.stringify(error))
-          this.successMsg = 'Sorry, we can`t take your request Now.'
-        }
+      this.firebaseService.enrollCourse(value).then((res) => {
+        this.loading = false;
+        this.successMsg = 'Thank you for enrolling the Course. We are redirecting you to payments gateway!';
+        setTimeout(() => {
+          this.router.navigate(['secure/payments',
+            {
+              name: _v.user_name,
+              course_name: _v.course_name,
+              start_date: _v.start_date,
+              end_date: _v.end_date,
+              duration: _v.duration,
+              event_price: _v.event_price
+            }
+          ])
+        }, 3000);
+      }
       );
       this.resetFields();
     }

@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'host-event',
     component: CreateEventComponent,
-    canActivate: [SeoGuard, AuthGuard],
+    // canActivate: [SeoGuard, AuthGuard],
     data: {
       title: 'StackMi - Scale up your career',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',

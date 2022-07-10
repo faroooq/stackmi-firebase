@@ -7,6 +7,7 @@ import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TimeFormat } from '../../shared/pipe/time.pipe';
 import { Subject } from 'rxjs';
 import { WindowService } from '../../shared/services/window-service';
+import { FirebaseService } from '../../shared/services/firebase.service';
 
 @Component({
   selector: 'app-register-courses',
@@ -33,9 +34,11 @@ export class RegisterCoursesComponent implements OnInit {
   public sendCourse: Subject<string> = new Subject<string>();
   windowRef: Window;
   locationRef: Location;
+  coursesDetails: any[];
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    public firebaseService: FirebaseService,
+    public activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     public http: HttpService,
     public auth: AuthService,
@@ -51,21 +54,12 @@ export class RegisterCoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.auth.isLoggedIn();
-    const eventId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.getEventDetails(eventId);
-  }
-
-  getEventDetails(eventId) {
-    this.loading = true;
-    this.http.get('events', eventId)
-      .subscribe(
-        data => {
-          this.event = data;
-          this.loading = false;
-        },
-        error => {
-          // console.log(error);
-        });
+    const eventId = this.activatedRoute.snapshot.paramMap.get('event_name');
+    console.log(eventId)
+    this.firebaseService.getEventDetails(eventId).subscribe((result) => {
+      this.loading = false;
+      this.coursesDetails = result;
+    });
   }
 
   navigateToEvent(url) {

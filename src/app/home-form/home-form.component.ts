@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../shared/services/auth-service';
 import { HttpService } from '../shared/services/http.service';
+import { FirebaseService } from '../shared/services/firebase.service';
 
 export interface CountryCodes {
   name: string;
@@ -39,7 +40,8 @@ export class HomeFormComponent implements OnInit {
     public router: Router,
     public http: HttpService,
     public httpClient: HttpClient,
-    public authService: AuthService
+    public authService: AuthService,
+    public firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -65,11 +67,10 @@ export class HomeFormComponent implements OnInit {
       form.append('email', _v.email);
       form.append('course_name', _v.course_name);
 
-      this.http.create('course_reg_users', value).subscribe(
-        (data) => {
-          this.loading = false;
-          this.successMsg = 'Thank you for registering. We will get back to you soon!'
-        },
+      this.firebaseService.demoCourse(value).then((res) => {
+        this.loading = false;
+        this.successMsg = 'Thank you for registering. We will get back to you soon!'
+      },
         error => {
           this.loading = false;
           // console.log('err : ' + JSON.stringify(error))

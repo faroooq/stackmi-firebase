@@ -10,6 +10,12 @@ import { MentorComponent } from './mentor/mentor.component';
 import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,12 @@ import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   exports: [
     SharedModule

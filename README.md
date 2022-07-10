@@ -1,6 +1,9 @@
 Access this website from the below url:
 http://stackmi.web.app/
 
+# Create course url
+http://localhost:4200/events/host-event
+
 ### Development
 
 - `npm run start`

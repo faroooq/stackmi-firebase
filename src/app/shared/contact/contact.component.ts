@@ -5,6 +5,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
 import { HttpService } from '../services/http.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class ContactComponent implements OnInit {
   });
   constructor(
     private formBuilder: FormBuilder,
-    public http: HttpService
+    public firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -42,16 +43,12 @@ export class ContactComponent implements OnInit {
       form.append('mobile', _v.mobile);
       form.append('description', _v.description);
 
-      this.http.create('contact', value).subscribe(
-        (data) => {
-          this.successMsg = 'Thank you for your request. We will get back to you soon.'
-        },
-        error => {
-          // console.log('err : ' + JSON.stringify(error))
-          this.successMsg = 'Sorry, we can`t take your request Now.'
-        }
-      );
-      this.resetFields();
+      // Submit your form to app call
+      this.firebaseService.contactForm(value).then((res) => {
+        this.successMsg =
+          'Thank you for contacting us. We will get back to you soon!';
+        this.resetFields();
+      });
     }
   }
 

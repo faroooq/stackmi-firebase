@@ -41,7 +41,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row" style="margin-top: 1rem;">
+                    <!-- <div class="row" style="margin-top: 1rem;">
                       <div class="col-12 col-md-6 email-margin">
                         <label style="margin-left: 1rem">Email ID
                           <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
@@ -66,7 +66,7 @@
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-6">
                       <label style="margin-left: 1rem">Start Date
                         <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
@@ -76,7 +76,7 @@
                           formControlName="start_date" />
                       </div>
                     </div>
-                    <div class="col-6">
+                    <!-- <div class="col-6">
                       <label style="margin-left: 1rem">Start Time
                         <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
                       </label>
@@ -84,7 +84,7 @@
                         <input type="time" class="input" id="start_time" placeholder="Enter start time"
                           formControlName="start_time" />
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-6">
                       <label style="margin-left: 1rem">End Date
                         <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
@@ -94,7 +94,7 @@
                           formControlName="end_date" />
                       </div>
                     </div>
-                    <div class="col-6">
+                    <!-- <div class="col-6">
                       <label style="margin-left: 1rem">End Time
                         <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
                       </label>
@@ -102,7 +102,7 @@
                         <input type="time" class="input" id="end_time" placeholder="Enter end time"
                           formControlName="end_time" />
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-6">
                       <label style="margin-left: 1rem">Duration
                         <sup><span style="color: #dc3545; font-size: 1rem" class="fa fa-star checked"></span></sup>
@@ -139,7 +139,7 @@
                           id="event_seo_desc" rows="3" formControlName="event_seo_desc"></textarea>
                       </div>
                     </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                       <div class="mb-2">
                         <label style="
                             font-size: 1.4rem;
@@ -151,7 +151,7 @@
                         <input style="width: 80%;" type="file" class="text-nowrap text-truncate"
                           (change)="selectFile($event)" />
                       </label>
-                    </div>
+                    </div> -->
                     <div class="col-12" *ngIf="formSubmitted">
                       <div *ngIf="errorMsg" class="alert alert-danger d-flex align-items-center" role="alert">
                         <div>{{ errorMsg }}</div>
@@ -165,11 +165,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-12" *ngIf="fileChooseMsg">
+                    <!-- <div class="col-12" *ngIf="fileChooseMsg">
                       <div *ngIf="fileChooseMsg" class="alert alert-danger d-flex align-items-center" role="alert">
                         <div>{{ fileChooseMsg }}</div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-12">
                       <button [disabled]="!eventForm.valid" type="submit" class="btn btn--theme btn-lg col-12">
                         Create Event

@@ -143,7 +143,7 @@ const routes: Routes = [
     component: PaymentsComponent
   },
   { path: '', loadChildren: () => import('./live-courses/live-courses.module').then(m => m.LiveCoursesModule) },
-  // { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
+  { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
   { path: 'academy', loadChildren: () => import('./academy/learnings.module').then(m => m.LearningsModule) },
 ];
 

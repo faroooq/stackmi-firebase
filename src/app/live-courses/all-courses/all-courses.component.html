@@ -14,7 +14,7 @@
         </div>
     </div>
     <div *ngIf="!loading" id="events">
-        <div class="grid grid--1X2" style="margin-bottom: 5rem; margin-top: 2rem;">
+        <div class="grid grid--1X3" style="margin-bottom: 5rem; margin-top: 2rem;">
             <div *ngFor="let event of events | sort: 'event_start_date'">
                 <div class="card card--secondary">
                     <!-- <div class="image-color" style="background: #d5d2d2">
@@ -29,14 +29,17 @@
                         </p>
                         <hr />
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-12">
                                 <div style="font-weight: 500; margin-top: 5px;">Start Date: &nbsp;&nbsp;{{
                                     event.start_date }}</div>
                                 <div style="font-weight: 500; margin-top: 5px;">End Date: &nbsp;&nbsp;&nbsp;&nbsp;{{
                                     event.end_date
                                     }}</div>
+                                <div style="font-weight: 500; margin-top: 5px;">Duration: &nbsp;&nbsp;&nbsp;&nbsp;{{
+                                    event.duration
+                                    }}</div>
                             </div>
-                            <div class="col-12 col-md-6">
+                            <!-- <div class="col-12 col-md-6">
                                 <div style="font-weight: 500; margin-top: 5px;">Timings:
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {{
@@ -45,10 +48,11 @@
                                 <div style="font-weight: 500; margin-top: 5px;">Duration:
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
                                     event.duration }}</div>
-                            </div>
+                            </div> -->
                             <div class="col-12 col-md-12">
                                 <div style="font-weight: 500; margin-top: 5px;">Course Fee:
-                                    <span class="badge badge--dull" style="padding: 1rem; font-size: 16px;">{{
+                                    <span class="badge badge--dull"
+                                        style="padding-top: 5px;padding-bottom: 5px; font-size: 16px;">{{
                                         event?.event_price
                                         }}</span>
                                 </div>
@@ -58,11 +62,11 @@
                     <hr />
                     <div class="container">
                         <div class="row">
-                            <div class="col-6 col-md-6">
+                            <!-- <div class="col-6 col-md-6">
                                 <a style="padding: 1rem;" [routerLink]="['/register-courses', event.id]"
                                     class="btn btn--outline btn--block">Curriculum</a>
-                            </div>
-                            <div class="col-6 col-md-6 mx-auto">
+                            </div> -->
+                            <div class="col-12">
                                 <button (click)="selectedCourse(event.event_name)" style="width: 100%;"
                                     class="btn btn--purple" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enroll
