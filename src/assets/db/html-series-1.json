@@ -1,0 +1,74 @@
+[
+  {
+    "course_id": 1,
+    "course_name": "Master HTML & CSS Series",
+    "topics": [
+      {
+        "topic_id": 1,
+        "topic_name": "Getting Started",
+        "lesson": [
+          {
+            "lesson_id": 1,
+            "lesson_name": "Introduction",
+            "lesson_duration": "1:40",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          }
+        ]
+      },
+      {
+        "topic_id": 2,
+        "topic_name": "Web Development Fundementals",
+        "lesson": [
+          {
+            "lesson_id": 1,
+            "lesson_name": "Web Technologies",
+            "lesson_duration": "2:48",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "Install VSCode Editor",
+            "lesson_duration": "2:33",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "How the web works",
+            "lesson_duration": "2:30",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "How the web works - In Action",
+            "lesson_duration": "3:50",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "Chrome Dev Tools",
+            "lesson_duration": "3:49",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "First Html Page",
+            "lesson_duration": "5:28",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "CSS Basics in Action",
+            "lesson_duration": "7:39",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          },
+          {
+            "lesson_id": 1,
+            "lesson_name": "Dom & Inspecting Pages",
+            "lesson_duration": "4:54",
+            "youtube_url": "https://www.youtube.com/embed/RXLwATGwQ-M"
+          }
+        ]
+      }
+    ]
+  }
+]

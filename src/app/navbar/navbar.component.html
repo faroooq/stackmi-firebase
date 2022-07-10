@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background: #fff">
+  <div class="container-fluid">
+    <button style="margin: 2rem;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <a class="navbar-brand" (click)="navigate('')">
+      <img style="width: 60%;" src="../../assets/images/frq-logo.png" alt="" />
+    </a> -->
+    <div style="margin: 1.5rem;" class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-link"
+            [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-link"
+            [routerLink]="['/courses']">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://medium.com/@codewithfarooq" target="_blank">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]="['/contact']">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" class="nav-link" [routerLink]="['/events']">Events</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+          <div *ngIf="!authService.isLoggedIn()">
+            <button (click)="signIn()" type="button" class="btn me-md-2 btn-outline-danger" style="margin-right: 5px;">
+              Log In
+            </button>
+            <button (click)="signUp()" type="button" class="btn me-md-2 btn-danger">
+              Sign Up
+            </button>
+          </div>
+        </div>
+        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+          <div *ngIf="authService.isLoggedIn()">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <div id="profileImage">
+                    {{this.firstLetter}}
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="signOut()">Log Out</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
