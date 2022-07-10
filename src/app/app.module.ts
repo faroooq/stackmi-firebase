@@ -1,60 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { CoursesComponent } from './courses/courses.component';
-import { FooterComponent } from './footer/footer.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
-import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
-import { ContactComponent } from './contact/contact.component';
-import { LecturesComponent } from './lectures/lectures.component';
-import { SafePipe } from './shared/pipe/safe.pipe';
-import { AboutComponent } from './about/about.component';
-import { CourseComponent } from './course/course.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { ProfileComponent } from './profile/profile.component';
-import { TermsComponent } from './terms/terms.component';
-import { PolicyComponent } from './policy/policy.component';
+import { ContactComponent } from './shared/contact/contact.component';
+import { AboutComponent } from './shared/about/about.component';
+import { MentorComponent } from './mentor/mentor.component';
+import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
-    CoursesComponent,
-    FooterComponent,
-    SocialButtonsComponent,
     ContactComponent,
-    LecturesComponent,
-    SafePipe,
     AboutComponent,
-    CourseComponent,
-    SignInComponent,
-    SignUpComponent,
-    ForgetPasswordComponent,
-    VerifyEmailComponent,
-    ProfileComponent,
-    TermsComponent,
-    PolicyComponent,
+    MentorComponent,
+    MentorSignupComponent,
+    SkillBarComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'stackmi' }),
+    BrowserTransferStateModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    SharedModule,
+    SharedModule
   ],
-  providers: [],
+  exports: [
+    SharedModule
+  ],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

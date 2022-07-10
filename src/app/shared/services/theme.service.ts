@@ -5,12 +5,16 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  
+
   private _themeDark: Subject<boolean> = new Subject<boolean>();
 
   isThemeDark = this._themeDark.asObservable();
-  
+
   setDarkTheme(isThemeDark: boolean) {
     this._themeDark.next(isThemeDark);
+  }
+
+  ngOnDestroy() {
+    this._themeDark.unsubscribe();
   }
 }

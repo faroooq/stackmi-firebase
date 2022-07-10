@@ -20,12 +20,10 @@ http://stackmi.web.app/
 
 npm run build:ssr
 
-<!-- No need to execute the below command for every deployment. -->
-
 firebase init
 
-folder location: dist/stackmi/browser
-cd dist/stackmi/browser
+folder location: dist/browser
+cd dist/browser
 
 # Goto the above location and run below command to deploy:
 

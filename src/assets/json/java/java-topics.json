@@ -1,0 +1,112 @@
+{
+    "course_title": "Java Tutorial",
+    "course_slug": "java-intro",
+    "course_list": [
+        {
+            "topic_list_id": "1",
+            "topic_title": "Java Basics",
+            "topic_list": [
+                {
+                    "topic_id": "1",
+                    "topic_slug": "java-intro",
+                    "topic_name": "Introduction to Java"
+                },
+                {
+                    "topic_id": "2",
+                    "topic_slug": "java-features",
+                    "topic_name": "Java Features"
+                },
+                {
+                    "topic_id": "3",
+                    "topic_slug": "java-jvm",
+                    "topic_name": "JVM Introduction"
+                },
+                {
+                    "topic_id": "4",
+                    "topic_slug": "java-string-interpolation",
+                    "topic_name": "String Interpolation"
+                },
+                {
+                    "topic_id": "5",
+                    "topic_slug": "java-first-program",
+                    "topic_name": "Java First Program"
+                },
+                {
+                    "topic_id": "6",
+                    "topic_slug": "java-variables",
+                    "topic_name": "Java Variables"
+                },
+                {
+                    "topic_id": "7",
+                    "topic_slug": "java-datatype-identifier",
+                    "topic_name": "Java Data types and Identifiers"
+                },
+                {
+                    "topic_id": "8",
+                    "topic_slug": "java-static-initializer-block",
+                    "topic_name": "Java Static and Initializer Block"
+                },
+                {
+                    "topic_id": "9",
+                    "topic_slug": "java-type-casting",
+                    "topic_name": "Java Type Casting"
+                },
+                {
+                    "topic_id": "10",
+                    "topic_slug": "java-conditional-statement",
+                    "topic_name": "Java Coditional Statement"
+                },
+                {
+                    "topic_id": "11",
+                    "topic_slug": "java-switch-statement",
+                    "topic_name": "Java Switch Statement"
+                },
+                {
+                    "topic_id": "12",
+                    "topic_slug": "java-loops",
+                    "topic_name": "Java Loops"
+                },
+                {
+                    "topic_id": "13",
+                    "topic_slug": "java-break-statement",
+                    "topic_name": "Java Break, Continue Statement"
+                },
+                {
+                    "topic_id": "14",
+                    "topic_slug": "java-operators",
+                    "topic_name": "Java Operators"
+                },
+                {
+                    "topic_id": "15",
+                    "topic_slug": "java-array",
+                    "topic_name": "Java Array"
+                },
+                {
+                    "topic_id": "16",
+                    "topic_slug": "java-objects",
+                    "topic_name": "Java Objects"
+                },
+                {
+                    "topic_id": "17",
+                    "topic_slug": "java-command-args",
+                    "topic_name": "Java Command Line Arguments"
+                }
+            ]
+        },
+        {
+            "topic_title": "Java Programs",
+            "topic_list": []
+        },
+        {
+            "topic_title": "Interview Questions",
+            "topic_list": []
+        },
+        {
+            "topic_title": "Java Skill Test",
+            "topic_list": []
+        }
+    ],
+    "_id": {
+        "$oid": "62697b3628285a2cbe25f0c1"
+    }
+}

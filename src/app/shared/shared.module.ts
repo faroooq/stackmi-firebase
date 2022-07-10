@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SafePipe } from './pipe/safe.pipe';
 import { ArraySortPipe } from './pipe/arraysort.pipe';
@@ -7,13 +7,27 @@ import { SeoGuard } from './seo-service/seo.guard';
 import { RequestCache } from './services/cache.service';
 import { ThemeService } from './services/theme.service';
 import { CachingInterceptor } from './services/cache.interceptor';
-import {
-  HTTP_INTERCEPTORS,
-  HttpClientModule,
-  HttpClient,
-} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from './services/http.service';
+import { TimeFormat } from './pipe/time.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { SignInComponent } from '../secure/sign-in/sign-in.component';
+import { SignUpComponent } from '../secure/sign-up/sign-up.component';
+import { UpdatePasswordComponent } from '../secure/update-password/update-password.component';
+import { ProfileComponent } from '../secure/profile/profile.component';
+import { TermsComponent } from './terms/terms.component';
+import { PolicyComponent } from './policy/policy.component';
+import { VerifyComponent } from '../secure/verify/verify.component';
+import { ForgotPasswordComponent } from '../secure/forgot-password/forgot-password.component';
+import { PaymentsComponent } from '../secure/payments/payments.component';
+import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   imports: [
@@ -22,8 +36,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
+    HighlightModule,
+    ShareButtonsModule,
+    ShareIconsModule,
   ],
-  declarations: [ArraySortPipe],
+  declarations: [
+    NavbarComponent,
+    FooterComponent,
+    SafePipe,
+    SignInComponent,
+    SignUpComponent,
+    UpdatePasswordComponent,
+    ProfileComponent,
+    TermsComponent,
+    PolicyComponent,
+    VerifyComponent,
+    ForgotPasswordComponent,
+    ArraySortPipe,
+    PaymentsComponent,
+    SocialButtonsComponent
+  ],
   providers: [
     HttpClient,
     SeoService,
@@ -31,7 +64,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ThemeService,
     CachingInterceptor,
     RequestCache,
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    HttpService,
+    DatePipe,
+    TimeFormat,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
+      multi: true
+    },
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: <HighlightOptions>{
+        lineNumbers: true
+      }
+    }
   ],
   exports: [
     CommonModule,
@@ -39,7 +85,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NavbarComponent,
+    FooterComponent,
+    SafePipe,
+    SignInComponent,
+    SignUpComponent,
+    UpdatePasswordComponent,
+    ProfileComponent,
+    TermsComponent,
+    PolicyComponent,
+    VerifyComponent,
+    ForgotPasswordComponent,
     ArraySortPipe,
+    PaymentsComponent,
+    SocialButtonsComponent,
+    FontAwesomeModule,
+    HighlightModule,
+    ShareButtonsModule,
+    ShareIconsModule,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

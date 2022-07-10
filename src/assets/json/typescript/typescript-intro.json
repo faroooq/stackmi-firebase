@@ -1,0 +1,37 @@
+{
+    "_id": {
+        "$oid": "61bf4a40814f0dceb78fea55"
+    },
+    "article_id": "1.1",
+    "article_slug": "ts-intro",
+    "article_title": "Introduction to Typescript",
+    "article_image": "",
+    "article_seo_image": "https://stackmi-storage.s3.ap-south-1.amazonaws.com/academy-imgs/Typescript/Angular-seo-typescript-intro.png",
+    "enroll_available": true,
+    "article_content": [
+        {
+            "content_title": "TypeScript vs JavaScript",
+            "content_desc": "<p>Angular is developed on top of JavaScript called TypeScript.</p>\n<p>TypeScript file ends with <strong>.ts</strong>, where as Javascript file ends with <strong>.js</strong>.</p>\n<p><strong>JavaScript</strong> is a text-based programming language used&nbsp;both on the client-side and server-side that allows you to make web pages interactive.</p>\n<p><strong>TypeScript</strong> is the ES6 version of JavaScript plus a few other TypeScript only features which Angular needs in order to work.&nbsp;</p>\n<hr />\n<p><em><strong>ECMAScript (ES)</strong> is a JavaScript standard meant to ensure the interoperability of the web pages across different web browsers. It is standardised by Ecma International according to the document ECMA-262.</em></p>\n<hr />",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Transpilation",
+            "content_desc": "<p>Basically browsers don&rsquo;t support TypeScript. So how can we write the code in TypeScript?</p>\n<p>We use something called <em>transpiler</em> which converts the typescript code back to javascript as that's what browsers understand.</p>\n<p>We can write the code in TypeScript and have a transpiler convert to latest version of ecmascript (ES6-Current version as of writing this article).</p>\n<p>Since most of the browsers don&rsquo;t support ES6 features yet we are going to <em>transpile</em>&nbsp;our TypeScript into ES5.</p>\n<p>The process of converting TypeScript into ES5 javascript is called <em>transpilation</em>&nbsp;and&nbsp;we use a&nbsp;tool called&nbsp;<strong><code>tsc</code></strong>&nbsp;to&nbsp;compile on&nbsp;the command line.</p>\n",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Install TypeScript",
+            "content_desc": "<p>We can install TypeScript via&nbsp;<code>npm.</code></p>\n<pre class=\"highlight\"><code>npm install -g typescript</code></pre>\n<p>The preceding command will install the TypeScript compiler and add its executable tsc to your path.</p>\n<p>To&nbsp;make sure everything worked correctly type:</p>\n<pre class=\"highlight\"><code>tsc -v</code><br /></pre>\n<p>\n  And it should print something like: Version 4.5.4\n</p>\n",
+            "content_image": "",
+            "content_code": ""
+        },
+        {
+            "content_title": "Running TypeScript",
+            "content_desc": "<p>Create a&nbsp;file called&nbsp;<code>hello.ts</code>.</p>\n<p>Inside that file add&nbsp;<code>console.log('hello world');</code></p>\n<p>We can compile a&nbsp;TypeScript file into a&nbsp;JavaScript file by&nbsp;calling:</p>\n<pre class=\"highlight\"><code>tsc hello.ts</code></pre>\n<p>This generates a file called hello.js</p>\n<p>And we can execute that file by using node, like:</p>\n<pre class=\"highlight\"><code>node hello.js</code></pre>\n<p>We can watch a TypeScript file for changes and compile it automatically with:</p>\n<pre class=\"highlight\"><code>tsc -w hello.ts</code></pre>\n<p>We can provide configuration on the command line, like:</p>\n<pre class=\"highlight\"><code>tsc -t ES6 -w hello.ts</code></pre>\n<p><strong>Note</strong>: The above -t ES6 is a flag to tell TypeScript to transpile into ES6 instead of the default ES5.</p>\n<p>However if we are want to&nbsp;watch a&nbsp;whole directory we need to&nbsp;use a&nbsp;configuration file.</p>\n<p>We can create a config file with the most common settings like:</p>\n<pre class=\"highlight\"><code>tsc --init</code></pre>\n<p>If we want to watch all files in a directory we can just type:</p>\n<pre class=\"highlight\"><code>tsc -w</code></pre>",
+            "content_image": "",
+            "content_code": ""
+        }
+    ]
+}

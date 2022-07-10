@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/stackmi/browser",
+    "public": "dist/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
