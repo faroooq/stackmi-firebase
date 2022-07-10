@@ -1,5 +1,5 @@
 Access this website from the below url:
-http://codewithfarooq.web.app/
+http://stackmi.web.app/
 
 ### Development
 
@@ -24,8 +24,8 @@ npm run build:ssr
 
 firebase init
 
-folder location: dist/codewithfarooq/browser
-cd dist/codewithfarooq/browser
+folder location: dist/stackmi/browser
+cd dist/stackmi/browser
 
 # Goto the above location and run below command to deploy:
 
@@ -37,8 +37,13 @@ firebase deploy
    SOLUTION:
    sudo chown -R $(whoami) ~/.npm
 
-2. Error: Failed to get Firebase project codewithfarooq. Please make sure the project exists and your account has permission to access it.
+2. Error: Failed to get Firebase project stackmi. Please make sure the project exists and your account has permission to access it.
    SOLUTION: logout and login
 
 3. More than one module matches. Use the skip-import option to skip importing the component into the closest module or use the module option to specify a module.
    SOLUTION: ng g c new-component --module app
+
+# Simple Angular Upgrade:
+npm install -g npm-check-updates
+ncu -u
+npm update

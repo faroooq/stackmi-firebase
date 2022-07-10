@@ -22,7 +22,7 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -33,7 +33,7 @@ const routes: Routes = [
     component: CourseComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -44,7 +44,7 @@ const routes: Routes = [
     component: LecturesComponent,
     canActivate: [SeoGuard, AuthGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -55,7 +55,7 @@ const routes: Routes = [
     component: AboutComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -66,7 +66,7 @@ const routes: Routes = [
     component: ContactComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -77,7 +77,7 @@ const routes: Routes = [
     component: SignInComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -88,7 +88,7 @@ const routes: Routes = [
     component: SignUpComponent,
     canActivate: [SeoGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -98,7 +98,7 @@ const routes: Routes = [
     path: 'forgot',
     component: ForgetPasswordComponent,
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -108,7 +108,7 @@ const routes: Routes = [
     path: 'email-verify',
     component: VerifyEmailComponent,
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -119,7 +119,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [SeoGuard, AuthGuard],
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -129,7 +129,7 @@ const routes: Routes = [
     path: 'terms',
     component: TermsComponent,
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
@@ -139,7 +139,7 @@ const routes: Routes = [
     path: 'policy',
     component: PolicyComponent,
     data: {
-      title: ['codewithfarooq'],
+      title: ['stackmi'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
       keywords:
         'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',

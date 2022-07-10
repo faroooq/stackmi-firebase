@@ -5,8 +5,8 @@ import { Title, Meta } from '@angular/platform-browser';
 export class SeoService {
 
   constructor(private title: Title, private meta: Meta) {
-    this.meta.updateTag({ name: 'twitter:site', content: 'codewithfarooq' });
-    this.meta.updateTag({ property: 'og:site_name', content: 'codewithfarooq' });
+    this.meta.updateTag({ name: 'twitter:site', content: 'stackmi' });
+    this.meta.updateTag({ property: 'og:site_name', content: 'stackmi' });
   }
 
   setTitle(title: string[]): SeoService {

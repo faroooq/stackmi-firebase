@@ -1,13 +1,10 @@
 {
   "hosting": {
-    "site": "codewithfarooq",
-    "public": "dist/codewithfarooq/browser",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "public": "dist/stackmi/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }

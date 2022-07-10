@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAOSxxl6neaMWK7k1JjpF4J6LPHgKZrvLc',
-    authDomain: 'codewithfarooq.firebaseapp.com',
-    databaseURL: 'https://codewithfarooq-default-rtdb.firebaseio.com',
-    projectId: 'codewithfarooq',
-    storageBucket: 'codewithfarooq.appspot.com',
-    messagingSenderId: '278757395319',
-    appId: '1:278757395319:web:2fdba06d1aab0e60fdef72',
-    measurementId: 'G-2T4JCYM9GZ',
+    apiKey: "AIzaSyBcpqgnqQVHs3TNrg3ORtvMCXtyahYXLYM",
+    authDomain: "stackmi.firebaseapp.com",
+    databaseURL: 'https://stackmi-default-rtdb.firebaseio.com',
+    projectId: "stackmi",
+    storageBucket: "stackmi.appspot.com",
+    messagingSenderId: "668939933611",
+    appId: "1:668939933611:web:cd03c503a851d377d024ee",
+    measurementId: "G-T2T63SJVWS"
   },
 };
 

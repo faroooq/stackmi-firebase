@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public firebaseService: FirebaseService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.successMsg = '';
@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
       form.append('first_name', _v.first_name);
       form.append('last_name', _v.last_name);
       form.append('email', _v.email);
-      form.append('description', _v.course);
+      form.append('description', _v.description);
       // Submit your form to app call
       this.firebaseService.contactForm(value).then((res) => {
         this.successMsg =
