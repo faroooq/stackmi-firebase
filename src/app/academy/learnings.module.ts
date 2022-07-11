@@ -8,6 +8,9 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleMenuComponent } from './article-menu/article-menu.component';
 import { JsonFormComponent } from './json-form/json-form.component';
 import { CourseAddsComponent } from './course-adds/course-adds.component';
+import { NewArticleComponent } from './new-article/new-article.component';
+import { QuillModule } from "ngx-quill";
+
 @NgModule({
   declarations: [
     LearningsComponent,
@@ -15,14 +18,16 @@ import { CourseAddsComponent } from './course-adds/course-adds.component';
     ArticleMenuComponent,
     ArticleComponent,
     JsonFormComponent,
-    CourseAddsComponent
+    CourseAddsComponent,
+    NewArticleComponent,
   ],
   providers: [
   ],
   imports: [
     CommonModule,
     SharedModule,
-    LearningsRoutingModule
+    LearningsRoutingModule,
+    QuillModule.forRoot()
   ],
   exports: [
     SharedModule

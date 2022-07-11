@@ -1,5 +1,9 @@
 @import "./normalize.css";
 @import '~highlight.js/styles/github.css';
+
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
@@ -92,12 +96,15 @@ label {
   body {
     font-size: 1.6rem;
   }
+
   h1 {
     font-size: 8rem;
   }
+
   h2 {
     font-size: 4rem;
   }
+
   h3 {
     font-size: 2.4rem;
   }
@@ -166,6 +173,7 @@ a {
   .badge {
     font-size: 1.5rem;
   }
+
   .badge--small {
     font-size: 1.2rem;
   }
@@ -571,16 +579,20 @@ a {
   .plan--popular {
     transform: scale(1.1);
   }
+
   .plan__name {
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
+
   .plan__desc {
     font-size: 2.3rem;
   }
+
   .plan__billing-cycle {
     font-size: 1.6rem;
   }
+
   .plan__description {
     font-size: 1.7rem;
     margin-top: 1rem;
@@ -646,9 +658,11 @@ a {
   .quote {
     font-size: 2rem;
   }
+
   .quote__author {
     font-size: 2.4rem;
   }
+
   .quote__organization {
     font-size: 1.6rem;
   }
@@ -665,21 +679,25 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media screen and (min-width: 1024px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media screen and (min-width: 1024px) {
   .grid--1x4 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 @media screen and (min-width: 1024px) {
   .grid--1x5 {
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
 @media screen and (min-width: 1024px) {
   .grid--1x6 {
     grid-template-columns: repeat(6, 1fr);
@@ -702,7 +720,7 @@ a {
   margin: 0 3rem;
 }
 
-.testimonial__image > .icon-container {
+.testimonial__image>.icon-container {
   position: absolute;
   top: 3rem;
   right: -32px;
@@ -712,6 +730,7 @@ a {
   .testimonial__image {
     margin: 0;
   }
+
   .testimonial .quote {
     margin: 5rem 0 0 6rem;
     font-size: 120%;
@@ -760,9 +779,11 @@ a {
   .callout .grid--1x2 {
     grid-template-columns: 1fr auto;
   }
+
   .callout__content {
     text-align: left;
   }
+
   .callout .btn {
     justify-self: start;
     margin: 0 2rem;
@@ -931,10 +952,12 @@ a {
   .block-showcase .grid {
     grid-template-columns: 50% 50%;
   }
+
   .block-showcase__image {
     justify-self: end;
   }
-  .block-showcase__image > img {
+
+  .block-showcase__image>img {
     width: auto;
     max-width: 700px;
   }
@@ -991,26 +1014,33 @@ a {
   .footer {
     font-size: 1.5rem;
   }
+
   .footer__sections {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
+
   .footer .collapsible__chevron {
     display: none;
   }
+
   .footer .collapsible__content {
     opacity: 1;
     max-height: 100%;
   }
+
   .footer__brand {
     order: -1;
     margin-top: 1rem;
   }
+
   .footer__copyright {
     font-size: 1.5rem;
   }
+
   .footer__section {
     border: 0;
   }
+
   .footer__heading {
     font-size: 1.6rem;
   }
@@ -1037,10 +1067,12 @@ input[type="number"] {
 .image-color {
   display: inline-block;
 }
+
 .image-color img {
   /* opacity: 0; */
   transition: opacity 0.6s ease;
 }
+
 .image-color.loaded img {
   /* opacity: 1; */
 }
@@ -1054,9 +1086,9 @@ input[type="number"] {
     background-position: 0 2rem;
     background-repeat: repeat-x;
   }
- }
+}
 
- @media screen and (min-width: 769px) and (max-width: 1023px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .highlight {
     display: inline-block;
     height: inherit;
@@ -1064,9 +1096,9 @@ input[type="number"] {
     background-position: 0 1rem;
     background-repeat: repeat-x;
   }
- }
+}
 
- @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .highlight {
     display: inline-block;
     height: inherit;
@@ -1074,14 +1106,14 @@ input[type="number"] {
     background-position: 0 2rem;
     background-repeat: repeat-x;
   }
- }
+}
 
- /* Blowing CSS
+/* Blowing CSS
 https://codepen.io/yshlin/pen/ylDEk  
 */
 
-.pyro > .before,
-.pyro > .after {
+.pyro>.before,
+.pyro>.after {
   position: absolute;
   width: 5px;
   height: 5px;
@@ -1094,7 +1126,7 @@ https://codepen.io/yshlin/pen/ylDEk
   animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
 }
 
-.pyro > .after {
+.pyro>.after {
   -moz-animation-delay: 1.25s, 1.25s, 1.25s;
   -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
   -o-animation-delay: 1.25s, 1.25s, 1.25s;
@@ -1112,26 +1144,31 @@ https://codepen.io/yshlin/pen/ylDEk
     box-shadow: -88px -107.6666666667px #80ff00, -43px -415.6666666667px #6200ff, 136px -238.6666666667px #d9ff00, 100px -276.6666666667px #00ff48, -107px -327.6666666667px #00ff2f, -79px -69.6666666667px #00d5ff, 59px -46.6666666667px #ff002f, -235px -129.6666666667px #8400ff, 201px -340.6666666667px #ff0077, 156px -114.6666666667px #99ff00, 157px 62.3333333333px #ff3c00, -128px 83.3333333333px #00ff7b, -34px -295.6666666667px #a600ff, -174px -149.6666666667px #ff0073, 146px 50.3333333333px lime, -115px -169.6666666667px #0066ff, 122px -285.6666666667px #ff0084, 179px -333.6666666667px #ff0091, 136px -313.6666666667px #f2ff00, 26px -249.6666666667px #ff6a00, -225px -12.6666666667px #0400ff, -147px -72.6666666667px #6fff00, -37px -317.6666666667px #3c00ff, -18px -270.6666666667px #ff003c, -3px -39.6666666667px #cc00ff, -26px -18.6666666667px #00ffb7, -232px -166.6666666667px #ff00fb, 94px -14.6666666667px #00ff2f, 113px -288.6666666667px #00ccff, -208px -113.6666666667px #ff1e00, -150px -164.6666666667px #00ff8c, 104px -353.6666666667px #0099ff, 201px -163.6666666667px #04ff00, 233px -134.6666666667px #00ff95, 234px -143.6666666667px #aa00ff, -62px -356.6666666667px #00ff73, -55px 66.3333333333px #b3ff00, 134px -101.6666666667px #00ccff, -122px -407.6666666667px #ff2f00, 72px -392.6666666667px #ff000d, 104px -247.6666666667px #00ffaa, 77px -154.6666666667px #00bbff, -132px -162.6666666667px #5900ff, -136px -156.6666666667px #00ff4d, 128px -6.6666666667px #ff0080, -157px -150.6666666667px #aa00ff, -109px -227.6666666667px #ff00a2, 39px 39.3333333333px #ff0084, 32px -214.6666666667px #1100ff, 70px -360.6666666667px #0033ff, 243px -50.6666666667px #5500ff;
   }
 }
+
 @-moz-keyframes bang {
   to {
     box-shadow: -88px -107.6666666667px #80ff00, -43px -415.6666666667px #6200ff, 136px -238.6666666667px #d9ff00, 100px -276.6666666667px #00ff48, -107px -327.6666666667px #00ff2f, -79px -69.6666666667px #00d5ff, 59px -46.6666666667px #ff002f, -235px -129.6666666667px #8400ff, 201px -340.6666666667px #ff0077, 156px -114.6666666667px #99ff00, 157px 62.3333333333px #ff3c00, -128px 83.3333333333px #00ff7b, -34px -295.6666666667px #a600ff, -174px -149.6666666667px #ff0073, 146px 50.3333333333px lime, -115px -169.6666666667px #0066ff, 122px -285.6666666667px #ff0084, 179px -333.6666666667px #ff0091, 136px -313.6666666667px #f2ff00, 26px -249.6666666667px #ff6a00, -225px -12.6666666667px #0400ff, -147px -72.6666666667px #6fff00, -37px -317.6666666667px #3c00ff, -18px -270.6666666667px #ff003c, -3px -39.6666666667px #cc00ff, -26px -18.6666666667px #00ffb7, -232px -166.6666666667px #ff00fb, 94px -14.6666666667px #00ff2f, 113px -288.6666666667px #00ccff, -208px -113.6666666667px #ff1e00, -150px -164.6666666667px #00ff8c, 104px -353.6666666667px #0099ff, 201px -163.6666666667px #04ff00, 233px -134.6666666667px #00ff95, 234px -143.6666666667px #aa00ff, -62px -356.6666666667px #00ff73, -55px 66.3333333333px #b3ff00, 134px -101.6666666667px #00ccff, -122px -407.6666666667px #ff2f00, 72px -392.6666666667px #ff000d, 104px -247.6666666667px #00ffaa, 77px -154.6666666667px #00bbff, -132px -162.6666666667px #5900ff, -136px -156.6666666667px #00ff4d, 128px -6.6666666667px #ff0080, -157px -150.6666666667px #aa00ff, -109px -227.6666666667px #ff00a2, 39px 39.3333333333px #ff0084, 32px -214.6666666667px #1100ff, 70px -360.6666666667px #0033ff, 243px -50.6666666667px #5500ff;
   }
 }
+
 @-o-keyframes bang {
   to {
     box-shadow: -88px -107.6666666667px #80ff00, -43px -415.6666666667px #6200ff, 136px -238.6666666667px #d9ff00, 100px -276.6666666667px #00ff48, -107px -327.6666666667px #00ff2f, -79px -69.6666666667px #00d5ff, 59px -46.6666666667px #ff002f, -235px -129.6666666667px #8400ff, 201px -340.6666666667px #ff0077, 156px -114.6666666667px #99ff00, 157px 62.3333333333px #ff3c00, -128px 83.3333333333px #00ff7b, -34px -295.6666666667px #a600ff, -174px -149.6666666667px #ff0073, 146px 50.3333333333px lime, -115px -169.6666666667px #0066ff, 122px -285.6666666667px #ff0084, 179px -333.6666666667px #ff0091, 136px -313.6666666667px #f2ff00, 26px -249.6666666667px #ff6a00, -225px -12.6666666667px #0400ff, -147px -72.6666666667px #6fff00, -37px -317.6666666667px #3c00ff, -18px -270.6666666667px #ff003c, -3px -39.6666666667px #cc00ff, -26px -18.6666666667px #00ffb7, -232px -166.6666666667px #ff00fb, 94px -14.6666666667px #00ff2f, 113px -288.6666666667px #00ccff, -208px -113.6666666667px #ff1e00, -150px -164.6666666667px #00ff8c, 104px -353.6666666667px #0099ff, 201px -163.6666666667px #04ff00, 233px -134.6666666667px #00ff95, 234px -143.6666666667px #aa00ff, -62px -356.6666666667px #00ff73, -55px 66.3333333333px #b3ff00, 134px -101.6666666667px #00ccff, -122px -407.6666666667px #ff2f00, 72px -392.6666666667px #ff000d, 104px -247.6666666667px #00ffaa, 77px -154.6666666667px #00bbff, -132px -162.6666666667px #5900ff, -136px -156.6666666667px #00ff4d, 128px -6.6666666667px #ff0080, -157px -150.6666666667px #aa00ff, -109px -227.6666666667px #ff00a2, 39px 39.3333333333px #ff0084, 32px -214.6666666667px #1100ff, 70px -360.6666666667px #0033ff, 243px -50.6666666667px #5500ff;
   }
 }
+
 @-ms-keyframes bang {
   to {
     box-shadow: -88px -107.6666666667px #80ff00, -43px -415.6666666667px #6200ff, 136px -238.6666666667px #d9ff00, 100px -276.6666666667px #00ff48, -107px -327.6666666667px #00ff2f, -79px -69.6666666667px #00d5ff, 59px -46.6666666667px #ff002f, -235px -129.6666666667px #8400ff, 201px -340.6666666667px #ff0077, 156px -114.6666666667px #99ff00, 157px 62.3333333333px #ff3c00, -128px 83.3333333333px #00ff7b, -34px -295.6666666667px #a600ff, -174px -149.6666666667px #ff0073, 146px 50.3333333333px lime, -115px -169.6666666667px #0066ff, 122px -285.6666666667px #ff0084, 179px -333.6666666667px #ff0091, 136px -313.6666666667px #f2ff00, 26px -249.6666666667px #ff6a00, -225px -12.6666666667px #0400ff, -147px -72.6666666667px #6fff00, -37px -317.6666666667px #3c00ff, -18px -270.6666666667px #ff003c, -3px -39.6666666667px #cc00ff, -26px -18.6666666667px #00ffb7, -232px -166.6666666667px #ff00fb, 94px -14.6666666667px #00ff2f, 113px -288.6666666667px #00ccff, -208px -113.6666666667px #ff1e00, -150px -164.6666666667px #00ff8c, 104px -353.6666666667px #0099ff, 201px -163.6666666667px #04ff00, 233px -134.6666666667px #00ff95, 234px -143.6666666667px #aa00ff, -62px -356.6666666667px #00ff73, -55px 66.3333333333px #b3ff00, 134px -101.6666666667px #00ccff, -122px -407.6666666667px #ff2f00, 72px -392.6666666667px #ff000d, 104px -247.6666666667px #00ffaa, 77px -154.6666666667px #00bbff, -132px -162.6666666667px #5900ff, -136px -156.6666666667px #00ff4d, 128px -6.6666666667px #ff0080, -157px -150.6666666667px #aa00ff, -109px -227.6666666667px #ff00a2, 39px 39.3333333333px #ff0084, 32px -214.6666666667px #1100ff, 70px -360.6666666667px #0033ff, 243px -50.6666666667px #5500ff;
   }
 }
+
 @keyframes bang {
   to {
     box-shadow: -88px -107.6666666667px #80ff00, -43px -415.6666666667px #6200ff, 136px -238.6666666667px #d9ff00, 100px -276.6666666667px #00ff48, -107px -327.6666666667px #00ff2f, -79px -69.6666666667px #00d5ff, 59px -46.6666666667px #ff002f, -235px -129.6666666667px #8400ff, 201px -340.6666666667px #ff0077, 156px -114.6666666667px #99ff00, 157px 62.3333333333px #ff3c00, -128px 83.3333333333px #00ff7b, -34px -295.6666666667px #a600ff, -174px -149.6666666667px #ff0073, 146px 50.3333333333px lime, -115px -169.6666666667px #0066ff, 122px -285.6666666667px #ff0084, 179px -333.6666666667px #ff0091, 136px -313.6666666667px #f2ff00, 26px -249.6666666667px #ff6a00, -225px -12.6666666667px #0400ff, -147px -72.6666666667px #6fff00, -37px -317.6666666667px #3c00ff, -18px -270.6666666667px #ff003c, -3px -39.6666666667px #cc00ff, -26px -18.6666666667px #00ffb7, -232px -166.6666666667px #ff00fb, 94px -14.6666666667px #00ff2f, 113px -288.6666666667px #00ccff, -208px -113.6666666667px #ff1e00, -150px -164.6666666667px #00ff8c, 104px -353.6666666667px #0099ff, 201px -163.6666666667px #04ff00, 233px -134.6666666667px #00ff95, 234px -143.6666666667px #aa00ff, -62px -356.6666666667px #00ff73, -55px 66.3333333333px #b3ff00, 134px -101.6666666667px #00ccff, -122px -407.6666666667px #ff2f00, 72px -392.6666666667px #ff000d, 104px -247.6666666667px #00ffaa, 77px -154.6666666667px #00bbff, -132px -162.6666666667px #5900ff, -136px -156.6666666667px #00ff4d, 128px -6.6666666667px #ff0080, -157px -150.6666666667px #aa00ff, -109px -227.6666666667px #ff00a2, 39px 39.3333333333px #ff0084, 32px -214.6666666667px #1100ff, 70px -360.6666666667px #0033ff, 243px -50.6666666667px #5500ff;
   }
 }
+
 @-webkit-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -1142,6 +1179,7 @@ https://codepen.io/yshlin/pen/ylDEk
     opacity: 0;
   }
 }
+
 @-moz-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -1152,6 +1190,7 @@ https://codepen.io/yshlin/pen/ylDEk
     opacity: 0;
   }
 }
+
 @-o-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -1162,6 +1201,7 @@ https://codepen.io/yshlin/pen/ylDEk
     opacity: 0;
   }
 }
+
 @-ms-keyframes gravity {
   to {
     transform: translateY(200px);
@@ -1172,6 +1212,7 @@ https://codepen.io/yshlin/pen/ylDEk
     opacity: 0;
   }
 }
+
 @keyframes gravity {
   to {
     transform: translateY(200px);
@@ -1182,46 +1223,68 @@ https://codepen.io/yshlin/pen/ylDEk
     opacity: 0;
   }
 }
+
 @-webkit-keyframes position {
-  0%, 19.9% {
+
+  0%,
+  19.9% {
     margin-top: 10%;
     margin-left: 40%;
   }
-  20%, 39.9% {
+
+  20%,
+  39.9% {
     margin-top: 40%;
     margin-left: 30%;
   }
-  40%, 59.9% {
+
+  40%,
+  59.9% {
     margin-top: 20%;
     margin-left: 70%;
   }
-  60%, 79.9% {
+
+  60%,
+  79.9% {
     margin-top: 30%;
     margin-left: 20%;
   }
-  80%, 99.9% {
+
+  80%,
+  99.9% {
     margin-top: 30%;
     margin-left: 80%;
   }
 }
+
 @-moz-keyframes position {
-  0%, 19.9% {
+
+  0%,
+  19.9% {
     margin-top: 10%;
     margin-left: 40%;
   }
-  20%, 39.9% {
+
+  20%,
+  39.9% {
     margin-top: 40%;
     margin-left: 30%;
   }
-  40%, 59.9% {
+
+  40%,
+  59.9% {
     margin-top: 20%;
     margin-left: 70%;
   }
-  60%, 79.9% {
+
+  60%,
+  79.9% {
     margin-top: 30%;
     margin-left: 20%;
   }
-  80%, 99.9% {
+
+  80%,
+  99.9% {
     margin-top: 30%;
     margin-left: 80%;
   }

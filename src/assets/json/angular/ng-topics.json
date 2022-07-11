@@ -1,7 +1,4 @@
 {
-    "_id": {
-        "$oid": "61e6d2c7629474e18058aa3c"
-    },
     "course_title": "Angular Tutorial",
     "course_slug": "ng-intro",
     "course_list": [

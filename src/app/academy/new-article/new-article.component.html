@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<section id="mentorform" class="block--mentor hero">
+    <div class="container">
+        <div data-aos="zoom-in">
+            <div class="text-secondary">
+                <div class="py-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                    <h3 class="mb-3" style="text-align: center; color: #5E17EB;">
+                                        Create Article
+                                    </h3>
+                                    <form class="row g-3" [formGroup]="articleForm"
+                                        (ngSubmit)="onSubmit(articleForm.value)">
+                                        <div class="col-12">
+                                            <label style="margin-left: 1rem">Title
+                                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                                        class="fa fa-star checked"></span></sup>
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="input" id="article_name"
+                                                    placeholder="Enter title" formControlName="article_name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label style="margin-left: 1rem">Image url
+                                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                                        class="fa fa-star checked"></span></sup>
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="input" id="image_url"
+                                                    placeholder="Enter Image Url" formControlName="image_url" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label style="margin-left: 1rem">Keywords
+                                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                                        class="fa fa-star checked"></span></sup>
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="input" id="article_tags"
+                                                    placeholder="Angular, Learning,.." formControlName="article_tags" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <!-- ########QUILL-EDITOR######## -->
+                                            <!-- https://killercodemonkey.github.io/ngx-quill-example/ -->
+                                            <div class="form-group">
+                                                <label for="description" class="label">Description</label>
+                                                <quill-editor formControlName="description" name="description"
+                                                    trackChanges="all" [modules]="modules" [styles]="{height: '450px'}">
+                                                </quill-editor>
+                                            </div>
+                                            <!-- ########QUILL-EDITOR######## -->
+                                        </div>
+                                        <div class="col-12">
+                                            <label style="margin-left: 1rem" class="mb-2">SEO Description
+                                                <sup><span style="color: #dc3545; font-size: 1rem"
+                                                        class="fa fa-star checked"></span></sup>
+                                            </label>
+                                            <div class="input-group">
+                                                <textarea style="height: 8rem;" class="input" placeholder="SEO Desc"
+                                                    id="seo_desc" rows="3" formControlName="seo_desc"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button [disabled]="!articleForm.valid" type="submit"
+                                                class="btn btn--theme btn-lg col-12">
+                                                Create Article
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

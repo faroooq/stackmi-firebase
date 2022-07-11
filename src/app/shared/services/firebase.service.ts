@@ -128,4 +128,13 @@ export class FirebaseService {
       event_seo_desc: value.event_seo_desc
     });
   }
+  createArticle(value) {
+    return this.db.collection('articles').add({
+      article_name: value.article_name,
+      image_url: value.image_url,
+      article_tags: value.article_tags,
+      description: value.description,
+      seo_desc: value.seo_desc,
+    });
+  }
 }

@@ -31,15 +31,8 @@ const routes: Routes = [
     },
   },
   {
-    path: 'host-event',
+    path: 'new-event',
     component: CreateEventComponent,
-    // canActivate: [SeoGuard, AuthGuard],
-    data: {
-      title: 'StackMi - Scale up your career',
-      desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
-      keywords:
-        'StackMi, Software, Training, Solutions, Web, Projects, Coding',
-    },
   }
 ];
 

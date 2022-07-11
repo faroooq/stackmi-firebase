@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SeoGuard } from '../shared/seo-service/seo.guard';
 import { LearningsComponent } from './learnings.component';
 import { ArticleComponent } from './article/article.component';
+import { NewArticleComponent } from './new-article/new-article.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
       keywords:
         'StackMi, Software, Training, Solutions, Web, Courses, Projects, Coding',
     },
+  },
+  {
+    path: 'new-article',
+    component: NewArticleComponent,
   },
   {
     path: 'article/:title',

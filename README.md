@@ -4,20 +4,6 @@ http://stackmi.web.app/
 # Create course url
 http://localhost:4200/events/host-event
 
-### Development
-
-- `npm run start`
-- in your browser [http://localhost:4200](http://localhost:4200)
-
-### Compilation
-
-- `npm run build` ( without SSR)
-- `npm run build:ssr` ( with SSR)
-
-### Production
-
-- `npm run serve:ssr`
-- in your browser [http://localhost:4000](http://localhost:4000)
 
 # Firebase Deployment:
 
