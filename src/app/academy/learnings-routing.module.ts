@@ -4,6 +4,7 @@ import { SeoGuard } from '../shared/seo-service/seo.guard';
 import { LearningsComponent } from './learnings.component';
 import { ArticleComponent } from './article/article.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'new-article',
     component: NewArticleComponent,
+  },
+  {
+    path: 'article/:title/edit',
+    component: EditArticleComponent,
   },
   {
     path: 'article/:title',

@@ -10,6 +10,7 @@ import { JsonFormComponent } from './json-form/json-form.component';
 import { CourseAddsComponent } from './course-adds/course-adds.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { QuillModule } from "ngx-quill";
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { QuillModule } from "ngx-quill";
     JsonFormComponent,
     CourseAddsComponent,
     NewArticleComponent,
+    EditArticleComponent,
   ],
   providers: [
   ],

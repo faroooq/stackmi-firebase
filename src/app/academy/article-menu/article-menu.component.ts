@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
+import { FirebaseService } from '../../shared/services/firebase.service';
 import { HttpService } from '../../shared/services/http.service';
 import { Article } from '../models';
 
@@ -21,6 +22,7 @@ export class ArticleMenuComponent implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     public http: HttpService,
+    public firebaseService: FirebaseService
   ) {
     $(document).ready(function () {
       $('#sidebarCollapse').on('click', function () {
@@ -63,14 +65,9 @@ export class ArticleMenuComponent implements OnInit {
     if ($('#sidebar').hasClass('active')) {
       $("#sidebar").toggleClass('active')
     }
-    this.http.get('courses', title).subscribe(
-      data => {
-        this.courses = data;
-        // console.log(this.courses)
-        this.loading = false;
-      },
-      error => {
-        // console.log(error);
-      });
+    this.firebaseService.getArticlesList(title).subscribe((article) => {
+      this.courses = article[0];
+      this.loading = false;
+    })
   }
 }

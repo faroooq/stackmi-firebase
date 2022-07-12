@@ -36,16 +36,14 @@ export class FirebaseService {
       .valueChanges();
   }
 
-  getCoursesList() {
-    return this.db.collection('courses-list').valueChanges();
+  getArticle(articleId) {
+    return this.db.collection('articles').doc('' + articleId).get();
   }
 
-  getCoursesDetails(courseId) {
-    return this.db
-      .collection('courses-details', (ref) =>
-        ref.where('course_id', '==', courseId)
-      )
-      .valueChanges();
+  getArticlesList(params) {
+    return this.db.collection('article_topics', (ref) =>
+      ref.where('course_slug', '==', params)
+    ).valueChanges();
   }
 
   searchUsers(searchValue) {
@@ -131,10 +129,15 @@ export class FirebaseService {
   createArticle(value) {
     return this.db.collection('articles').add({
       article_name: value.article_name,
-      image_url: value.image_url,
+      article_slug: value.article_slug,
+      article_image: value.article_image,
       article_tags: value.article_tags,
-      description: value.description,
-      seo_desc: value.seo_desc,
+      article_content: value.article_content,
+      article_seo_desc: value.article_seo_desc
     });
+  }
+
+  updateArticle(slug, value) {
+    return this.db.collection('articles').doc(slug).set(value);
   }
 }

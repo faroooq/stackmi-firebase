@@ -5,15 +5,16 @@ import BlotFormatter from "quill-blot-formatter";
 import ImageCompress from 'quill-image-compress';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../../shared/services/firebase.service';
+import { ActivatedRoute } from '@angular/router';
 Quill.register("modules/blotFormatter", BlotFormatter);
 Quill.register('modules/imageCompress', ImageCompress);
 
 @Component({
-  selector: 'app-new-article',
-  templateUrl: './new-article.component.html',
-  styleUrls: ['./new-article.component.css']
+  selector: 'app-edit-article',
+  templateUrl: './edit-article.component.html',
+  styleUrls: ['./edit-article.component.css']
 })
-export class NewArticleComponent implements OnInit {
+export class EditArticleComponent {
   modules = {};
 
   articleForm = this.formBuilder.group({
@@ -26,10 +27,12 @@ export class NewArticleComponent implements OnInit {
   });
   successMsg: string;
   loading: boolean;
+  article: any;
 
   constructor(
     private formBuilder: FormBuilder,
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService,
+    public route: ActivatedRoute,
   ) {
     // ########QUILL-EDITOR########
     this.modules = {
@@ -85,6 +88,19 @@ export class NewArticleComponent implements OnInit {
   // ########QUILL-EDITOR########
 
   ngOnInit(): void {
+    this.route.params
+      .subscribe(params => {
+        this.firebaseService.getArticle(params.title).subscribe((article) => {
+          this.loading = false;
+          this.article = article.data();
+          this.articleForm.get("article_name").setValue(this.article.article_name);
+          this.articleForm.get("article_slug").setValue(this.article.article_slug);
+          this.articleForm.get("article_image").setValue(this.article.article_image);
+          this.articleForm.get("article_tags").setValue(this.article.article_tags);
+          this.articleForm.get("article_content").setValue(this.article.article_content);
+          this.articleForm.get("article_seo_desc").setValue(this.article.article_seo_desc);
+        })
+      })
   }
 
   onSubmit(value) {
@@ -97,13 +113,10 @@ export class NewArticleComponent implements OnInit {
       form.append('article_tags', _v.article_tags);
       form.append('article_content', _v.article_content);
       form.append('article_seo_desc', _v.article_seo_desc);
-      this.firebaseService.createArticle(value).then((res) => {
-        this.loading = false;
-        if (res) {
-          this.successMsg = 'Thank you for posting the article. We will get back to you soon.'
-        }
-      }
-      );
+      this.firebaseService.updateArticle(value.article_slug, value).then(() => {
+        console.log('Record updated')
+      });
     }
   }
+
 }
