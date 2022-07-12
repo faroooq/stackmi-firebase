@@ -1,11 +1,12 @@
 Access this website from the below url:
 http://stackmi.web.app/
 
-# Create course url
-http://localhost:4200/events/host-event
+# firebase ssr rendering conf single command
+ng add @angular/fire
 
+ng deploy
 
-# Firebase Deployment:
+# Firebase Deployment without ssr:
 
 npm run build:ssr
 

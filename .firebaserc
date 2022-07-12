@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "stackmi"
+  },
+  "targets": {
+    "stackmi": {
+      "hosting": {
+        "stackmi": [
+          "stackmi"
+        ]
+      }
+    }
   }
 }

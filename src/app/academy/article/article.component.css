@@ -58,7 +58,9 @@ h3 {
     -webkit-font-smoothing: antialiased;
 }
 
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
@@ -66,18 +68,20 @@ a, a:hover, a:focus {
 
 .navbar-light .navbar-nav .nav-link {
     color: #5E17EB;
-  }
-  
-  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
     color: #dc3545 !important;
-  }
-  
-  .dropdown-divider {
+}
+
+.dropdown-divider {
     height: 0.5px;
-  }
-  .dropdown-item:hover {
+}
+
+.dropdown-item:hover {
     color: #dc3545 !important;
-  }
+}
 
 .navbar {
     margin: -20px;
@@ -142,12 +146,14 @@ a, a:hover, a:focus {
     font-size: 1.1em;
     display: block;
 }
+
 #sidebar ul li a:hover {
     color: #5E17EB;
     background: #fff;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
     color: #5E17EB;
     background: #fff;
 }
@@ -190,7 +196,8 @@ a.download {
     color: #5E17EB;
 }
 
-a.article, a.article:hover {
+a.article,
+a.article:hover {
     background: #5E17EB !important;
     color: #fff !important;
 }
@@ -226,9 +233,11 @@ a.article, a.article:hover {
 #sidebarCollapse span:first-of-type {
     transform: rotate(45deg) translate(2px, 2px);
 }
+
 #sidebarCollapse span:nth-of-type(2) {
     opacity: 0;
 }
+
 #sidebarCollapse span:last-of-type {
     transform: rotate(-45deg) translate(1px, -1px);
 }
@@ -249,10 +258,12 @@ a.article, a.article:hover {
         margin-left: -250px;
         transform: rotateY(90deg);
     }
+
     #sidebar.active {
         margin-left: 0;
         transform: none;
     }
+
     #sidebarCollapse span:first-of-type,
     #sidebarCollapse span:nth-of-type(2),
     #sidebarCollapse span:last-of-type {
@@ -260,15 +271,19 @@ a.article, a.article:hover {
         opacity: 1;
         margin: 5px auto;
     }
+
     #sidebarCollapse.active span {
         margin: 0 auto;
     }
+
     #sidebarCollapse.active span:first-of-type {
         transform: rotate(45deg) translate(2px, 2px);
     }
+
     #sidebarCollapse.active span:nth-of-type(2) {
         opacity: 0;
     }
+
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
     }
@@ -284,34 +299,42 @@ button {
     font-size: 1.6rem;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-  
-  @media (min-width: 0px) and (max-width: 768px) {
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
     logo-display {
-      display: none;
+        display: none;
     }
+
     button {
-      margin: 0.5rem;
+        margin: 0.5rem;
     }
-  }
+}
 
-  .navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link {
     color: #5E17EB;
-  }
-  
-  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
     color: #dc3545 !important;
-  }
+}
 
-  li {
+li {
     margin: 0.5rem;
-  }
+}
 
-  #navbar-style {
-    font-size: 16px !important; 
-    color: #5E17EB; 
-    background: #fff !important; 
-    padding-left: 10px !important; 
+#navbar-style {
+    font-size: 16px !important;
+    color: #5E17EB;
+    background: #fff !important;
+    padding-left: 10px !important;
     padding-bottom: 10px;
-  }
-  
+}
+
+::ng-deep pre.ql-syntax {
+    background-color: #f6f6f6;
+    color: #000000;
+    overflow: visible;
+    padding: 1rem;
+}

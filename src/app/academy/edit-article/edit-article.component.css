@@ -1,0 +1,6 @@
+::ng-deep .ql-snow .ql-editor pre.ql-syntax {
+    background-color: #f6f6f6;
+    color: #000000;
+    overflow: visible;
+    padding: 1rem;
+}

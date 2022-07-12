@@ -27,6 +27,10 @@ const routes: Routes = [
     component: EditArticleComponent,
   },
   {
+    path: 'courses/:title/edit',
+    component: EditArticleComponent,
+  },
+  {
     path: 'article/:title',
     component: ArticleComponent,
     canActivate: [SeoGuard],

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { HttpService } from '../services/http.service';
 import { environment } from '../../../environments/environment';
+import { FirebaseService } from '../services/firebase.service';
 
 @Injectable()
 export class SeoGuard implements CanActivate {
@@ -12,6 +13,7 @@ export class SeoGuard implements CanActivate {
     public constructor(
         private seo: SeoService,
         public http: HttpService,
+        public firebaseService: FirebaseService,
         public activatedRoute: ActivatedRoute) { }
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -516,16 +518,16 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": ""
                 },
             ]
-            for (let i = 0; i < articlMetaSEO.length; i++) {
-                if (route.params.title === articlMetaSEO[i].seo_slug) {
+            this.firebaseService.getArticle(route.params.title).subscribe((article) => {
+                let articleSEO: any = article.data();
+                if (route.params.title === articleSEO.article_slug) {
                     this.seo
-                        .setTitle(articlMetaSEO[i].seo_title)
-                        .setMetaData(articlMetaSEO[i].seo_image ? articlMetaSEO[i].seo_image : environment.default_imageUrl, environment.articleurl + articlMetaSEO[i].seo_slug)
-                        .setDescription(articlMetaSEO[i].seo_desc)
-                        .setKeywords(articlMetaSEO[i].seo_keywords);
-                    break;
+                        .setTitle(articleSEO.article_name)
+                        .setMetaData(articleSEO.article_image ? articleSEO.article_image : environment.default_imageUrl, environment.articleurl + articleSEO.article_slug)
+                        .setDescription(articleSEO.article_seo_desc)
+                        .setKeywords(articleSEO.article_tags);
                 }
-            }
+            })
         } else if (routeTitle === 'academy' || routeTitle === 'events') {
             this.seo
                 .setTitle('StackMi ' + route.data.title)
