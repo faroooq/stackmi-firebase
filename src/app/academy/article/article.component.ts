@@ -7,6 +7,7 @@ import { HighlightResult } from 'ngx-highlightjs';
 import { HttpService } from '../../shared/services/http.service';
 import { AuthService } from '../../shared/services/auth-service';
 import { FirebaseService } from '../../shared/services/firebase.service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -26,11 +27,12 @@ export class ArticleComponent implements OnInit {
   response: HighlightResult;
   articleUrl: string;
   articleImage: string;
+  adminButtons: boolean;
 
   constructor(
     public route: ActivatedRoute,
     private http: HttpService,
-    public authService: AuthService,
+    public authService: FirebaseAuthService,
     public router: Router,
     public httpClient: HttpClient,
     public firebaseService: FirebaseService
@@ -43,6 +45,9 @@ export class ArticleComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.userDetails = this.authService.getUserDetails();
       // console.log(this.userDetails)
+      if (this.userDetails.email === 'faroooq.in@gmail.com') {
+        this.adminButtons = true;
+      }
     }
     this.route.params
       .subscribe(params => {

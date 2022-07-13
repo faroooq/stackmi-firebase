@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './shared/services/auth-service';
+import { FirebaseAuthService } from './shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { AuthService } from './shared/services/auth-service';
 export class AppComponent {
   title = 'stackmi';
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: FirebaseAuthService) {
   }
 
   ngOnInit() {

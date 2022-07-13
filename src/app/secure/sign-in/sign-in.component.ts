@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, TokenPayload } from '../../shared/services/auth-service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,6 +26,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
+    public firebaseAuth: FirebaseAuthService,
     public auth: AuthService
   ) { }
 
@@ -36,23 +38,24 @@ export class SignInComponent implements OnInit {
     this.errorMsg = '';
     this.formSubmitted = true;
     if (this.signinForm.valid) {
-      const _v = this.signinForm.value;
-      this.auth.login(formData).subscribe(
-        (data) => {
-          // console.log('sign in : ' + JSON.stringify(data))
-          if (data.user_verified) {
-            this.router.navigateByUrl("/");
-          } else {
-            this.errorMsg = 'Your SignUp mail confirmation is pending. Please check you mail.'
-          }
-        },
-        error => {
-          if (error.status === 401) {
-            this.errorMsg = 'Entered email-id or password is incorrect.'
-          }
-          // console.error(JSON.stringify(err.status));
-        }
-      );
+      // const _v = this.signinForm.value;
+      this.firebaseAuth.SignIn(formData.email, formData.password);
+      // this.auth.login(formData).subscribe(
+      //   (data) => {
+      //     // console.log('sign in : ' + JSON.stringify(data))
+      //     if (data.user_verified) {
+      //       this.router.navigateByUrl("/");
+      //     } else {
+      //       this.errorMsg = 'Your SignUp mail confirmation is pending. Please check you mail.'
+      //     }
+      //   },
+      //   error => {
+      //     if (error.status === 401) {
+      //       this.errorMsg = 'Entered email-id or password is incorrect.'
+      //     }
+      //     // console.error(JSON.stringify(err.status));
+      //   }
+      // );
     }
   }
 

@@ -64,7 +64,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
-    canActivate: [SeoGuard],
+    canActivate: [AuthGuard, SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
@@ -75,7 +75,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent,
-    canActivate: [SeoGuard],
+    canActivate: [AuthGuard, SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
@@ -95,7 +95,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'verify',
+    path: 'verify-email-address',
     component: VerifyComponent
   },
   {

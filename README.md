@@ -35,3 +35,6 @@ firebase deploy
 npm install -g npm-check-updates
 ncu -u
 npm update
+
+# Less secure apps
+http://help.warmupinbox.com/en/articles/5445728-google-error-535-5-7-8-username-and-password-not-accepted

@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, TokenPayload } from '../../shared/services/auth-service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 export interface CountryCodes {
   name: string;
@@ -30,8 +31,8 @@ export class SignUpComponent implements OnInit {
   errorMsg: string;
   successMsg: string;
   signupForm = this.formBuilder.group({
-    user_name: new FormControl('', [Validators.required]),
-    mobile: new FormControl('', [Validators.required]),
+    // user_name: new FormControl('', [Validators.required]),
+    // mobile: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     // student: new FormControl(true, [Validators.required]),
@@ -47,7 +48,8 @@ export class SignUpComponent implements OnInit {
     private formBuilder: FormBuilder,
     public router: Router,
     public http: HttpClient,
-    public auth: AuthService
+    public auth: AuthService,
+    public firebaseAuth: FirebaseAuthService
   ) { }
 
   ngOnInit() {
@@ -73,28 +75,36 @@ export class SignUpComponent implements OnInit {
       const _v = this.signupForm.value;
       const form = new FormData();
       form.append('email', _v.email);
-      form.append('user_name', _v.user_name);
-      form.append('mobile', _v.mobile);
+      // form.append('user_name', _v.user_name);
+      // form.append('mobile', _v.mobile);
       form.append('password', _v.password);
       // form.append('student', _v.student);
-
-      this.auth.signup(value).subscribe(
-        (data) => {
-          // console.log('register : ' + JSON.stringify(data))
-          this.loading = false;
-          this.successMsg = 'Email verification link sent. Please check your e-mail.'
-          this.resetFields();
-        },
+      this.firebaseAuth.SignUp(_v.email, _v.password).then(() => {
+        this.loading = false;
+      },
         error => {
           this.loading = false;
-          // console.log('err : ' + JSON.stringify(error))
-          if (error.status === 400) {
+          if (error.code === 400) {
             this.errorMsg = 'The email address you have entered is already associated with another account.';
-          } else if (error.status === 405) {
-            this.successMsg = 'Email verification link sent. Please check your e-mail.'
           }
-        }
-      );
+        });
+      // this.auth.signup(value).subscribe(
+      //   (data) => {
+      //     // console.log('register : ' + JSON.stringify(data))
+      //     this.loading = false;
+      //     this.successMsg = 'Email verification link sent. Please check your e-mail.'
+      //     this.resetFields();
+      //   },
+      //   error => {
+      //     this.loading = false;
+      //     // console.log('err : ' + JSON.stringify(error))
+      //     if (error.status === 400) {
+      //       this.errorMsg = 'The email address you have entered is already associated with another account.';
+      //     } else if (error.status === 405) {
+      //       this.successMsg = 'Email verification link sent. Please check your e-mail.'
+      //     }
+      //   }
+      // );
     }
   }
 
@@ -112,8 +122,8 @@ export class SignUpComponent implements OnInit {
   resetFields() {
     this.formSubmitted = true;
     this.signupForm = this.formBuilder.group({
-      user_name: new FormControl('', Validators.required),
-      mobile: new FormControl('', Validators.required),
+      // user_name: new FormControl('', Validators.required),
+      // mobile: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       // student: new FormControl('', Validators.required),

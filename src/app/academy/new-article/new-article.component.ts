@@ -72,14 +72,14 @@ export class NewArticleComponent implements OnInit {
       key: 'b'
     }, (range, context) => {
       // tslint:disable-next-line:no-console
-      console.log('KEYBINDING B', range, context)
+      // console.log('KEYBINDING B', range, context)
     })
     quill.keyboard.addBinding({
       key: 'B',
       shiftKey: true
     }, (range, context) => {
       // tslint:disable-next-line:no-console
-      console.log('KEYBINDING SHIFT + B', range, context)
+      // console.log('KEYBINDING SHIFT + B', range, context)
     })
   }
   // ########QUILL-EDITOR########

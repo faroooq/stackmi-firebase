@@ -18,8 +18,8 @@ export const environment = {
   defaulturl: "https://www.stackmi.com/",
   default_imageUrl: "https://www.stackmi.com/assets/images/stackmi_seo.png",
   my_imageUrl: "https://stackmi-storage.s3.ap-south-1.amazonaws.com/add_seo_image.png",
-  gClientId: "114364532011-qu5le8pp4nd6k18e3vjscn18423djjrk.apps.googleusercontent.com",
-  gClientSecret: "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",
+  gClientId: "668939933611-1koanfrbk35ci72olrio6bccrrlmc5od.apps.googleusercontent.com",
+  gClientSecret: "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",
   fAppId: '2189034417964830',
   defaultPwd: '12345'
 };

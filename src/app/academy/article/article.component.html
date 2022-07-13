@@ -43,7 +43,7 @@
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     <span style="color: #5E17EB; font-size: 1.6rem;">Hi,&nbsp;</span>
-                                    <span style="color: #5E17EB;">{{ userDetails.user_name }}&nbsp;</span>
+                                    <span style="color: #5E17EB;">{{ userDetails.displayName }}&nbsp;</span>
                                     <i style="font-size: 1.4rem;" class="fa fa-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -51,10 +51,10 @@
                                         <a id="navbar-style" class="dropdown-item" [routerLink]="['/profile']">
                                             <i class="fas fa-user"></i>&nbsp;Profile</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a id="navbar-style" class="dropdown-item" [routerLink]="['/updatepwd']">
                                             <i class="fas fa-unlock-alt"></i>&nbsp;Password</a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <a id="navbar-style" class="dropdown-item" (click)="signOut()">
                                             <i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
@@ -68,7 +68,7 @@
         </nav>
         <div class="content mt-5">
             <div class="col-12">
-                <button routerLink="edit" type="button" class="btn btn--theme btn-sm">
+                <button *ngIf="adminButtons" routerLink="edit" type="button" class="btn btn--theme btn-sm">
                     Update Article
                 </button>
             </div>

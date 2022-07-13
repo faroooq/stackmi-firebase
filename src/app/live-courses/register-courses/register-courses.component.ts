@@ -8,6 +8,7 @@ import { TimeFormat } from '../../shared/pipe/time.pipe';
 import { Subject } from 'rxjs';
 import { WindowService } from '../../shared/services/window-service';
 import { FirebaseService } from '../../shared/services/firebase.service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-register-courses',
@@ -41,7 +42,7 @@ export class RegisterCoursesComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     public http: HttpService,
-    public auth: AuthService,
+    public auth: FirebaseAuthService,
     public route: Router,
     public datepipe: DatePipe,
     public timepipe: TimeFormat,

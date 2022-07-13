@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
 import { AuthService } from '../shared/services/auth-service';
+import { FirebaseAuthService } from '../shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-mentor',
@@ -9,7 +10,7 @@ import { AuthService } from '../shared/services/auth-service';
 })
 export class MentorComponent implements OnInit {
 
-  constructor(private scroller: ViewportScroller, public authService: AuthService) { }
+  constructor(private scroller: ViewportScroller, public authService: FirebaseAuthService) { }
 
   ngOnInit(): void {
   }

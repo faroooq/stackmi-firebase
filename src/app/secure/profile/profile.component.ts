@@ -8,9 +8,10 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, UserDetails } from '../../shared/services/auth-service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 export interface User {
-  user_name: string;
+  displayName: string;
   mobile: string;
   email: string;
   skills?: string;
@@ -39,20 +40,20 @@ export class ProfileComponent implements OnInit {
   formSubmitted: boolean = false;
   successMsg: string;
   profileForm = this.formBuilder.group({
-    user_name: new FormControl('', [Validators.required]),
-    mobile: new FormControl('', [Validators.required]),
-    email: new FormControl({ value: '', disabled: true }, [Validators.required, Validators.email]),
-    skills: new FormControl('', [Validators.required]),
-    experience: new FormControl('', [Validators.required]),
-    profession: new FormControl('', [Validators.required]),
-    profile_desc: new FormControl('', [Validators.required]),
+    displayName: new FormControl({ value: '', disabled: true }, [Validators.required]),
+    // mobile: new FormControl('', [Validators.required]),
+    email: new FormControl({ value: '', disabled: true }, [Validators.required, Validators.email])
+    // skills: new FormControl('', [Validators.required]),
+    // experience: new FormControl('', [Validators.required]),
+    // profession: new FormControl('', [Validators.required]),
+    // profile_desc: new FormControl('', [Validators.required]),
   });
   user: User;
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
     public http: HttpClient,
-    public auth: AuthService
+    public auth: FirebaseAuthService
   ) { }
 
   ngOnInit() {
@@ -68,24 +69,18 @@ export class ProfileComponent implements OnInit {
 
   getUserProfile() {
     this.loading = true;
-    this.auth.profile().subscribe(
-      user => {
-        this.user = user;
-        // console.log(JSON.stringify(user))
-        this.loading = false;
-        this.profileForm.get('user_name')?.setValue(this.user.user_name);
-        this.profileForm.get('mobile')?.setValue(this.user.mobile);
-        this.profileForm.get('email')?.setValue(this.user.email);
-        this.profileForm.get('skills')?.setValue(this.user.skills);
-        this.profileForm.get('experience')?.setValue(this.user.experience);
-        this.profileForm.get('profession')?.setValue(this.user.profession);
-        this.profileForm.get('profile_desc')?.setValue(this.user.profile_desc);
-      },
-      err => {
-        this.loading = false;
-        console.error(err);
-      }
-    );
+    console.log(this.auth.getUserDetails());
+    this.user = this.auth.getUserDetails();
+    // console.log(JSON.stringify(user))
+    this.loading = false;
+    this.profileForm.get('displayName')?.setValue(this.user.displayName);
+    // this.profileForm.get('mobile')?.setValue(this.user.mobile);
+    this.profileForm.get('email')?.setValue(this.user.email);
+    // this.profileForm.get('skills')?.setValue(this.user.skills);
+    // this.profileForm.get('experience')?.setValue(this.user.experience);
+    // this.profileForm.get('profession')?.setValue(this.user.profession);
+    // this.profileForm.get('profile_desc')?.setValue(this.user.profile_desc);
+
   }
 
   onSubmit(value) {
@@ -95,25 +90,25 @@ export class ProfileComponent implements OnInit {
     if (this.profileForm.valid) {
       const _v = this.profileForm.value;
       const form = new FormData();
-      form.append('user_name', _v.user_name);
-      form.append('mobile', _v.mobile);
+      form.append('displayName', _v.displayName);
+      // form.append('mobile', _v.mobile);
       form.append('email', _v.email);
       // form.append('employer', _v.employer);
-      form.append('experience', _v.experience);
+      // form.append('experience', _v.experience);
 
-      this.auth.updateUser(value).subscribe(
-        user => {
-          this.loading = false;
-          // this.user = user;
-          this.successMsg = 'You have successfully updated your profile details.'
-          // this.router.navigateByUrl('/profile');
-          // this.resetFields();
-        },
-        err => {
-          this.loading = false;
-          console.error(err);
-        }
-      );
+      // this.auth.updateUser(value).subscribe(
+      //   user => {
+      //     this.loading = false;
+      //     // this.user = user;
+      //     this.successMsg = 'You have successfully updated your profile details.'
+      //     // this.router.navigateByUrl('/profile');
+      //     // this.resetFields();
+      //   },
+      //   err => {
+      //     this.loading = false;
+      //     console.error(err);
+      //   }
+      // );
 
     }
   }
@@ -121,13 +116,13 @@ export class ProfileComponent implements OnInit {
   resetFields() {
     this.formSubmitted = true;
     this.profileForm = this.formBuilder.group({
-      user_name: new FormControl('', Validators.required),
-      mobile: new FormControl('', Validators.required),
+      displayName: new FormControl('', Validators.required),
+      // mobile: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      skills: new FormControl('', Validators.required),
-      experience: new FormControl('', Validators.required),
-      profession: new FormControl('', Validators.required),
-      profile_desc: new FormControl('', Validators.required),
+      // skills: new FormControl('', Validators.required),
+      // experience: new FormControl('', Validators.required),
+      // profession: new FormControl('', Validators.required),
+      // profile_desc: new FormControl('', Validators.required),
     });
   }
 

@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService, TokenPayload } from '../../shared/services/auth-service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 export interface User {
   uid: string;
@@ -59,7 +60,7 @@ export class MentorSignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     public router: Router,
     public http: HttpClient,
-    public authService: AuthService
+    public authService: FirebaseAuthService
   ) { }
 
   ngOnInit() {
@@ -73,39 +74,39 @@ export class MentorSignupComponent implements OnInit {
   }
 
   onSubmit(value) {
-    this.loading = true;
-    this.errorMsg = '';
-    this.successMsg = '';
-    this.formSubmitted = true;
-    if (this.mentorForm.valid) {
-      const _v = this.mentorForm.value;
-      const form = new FormData();
-      form.append('user_name', _v.user_name);
-      form.append('mobile', _v.mobile);
-      form.append('email', _v.email);
-      form.append('skills', _v.skills);
-      form.append('experience', _v.experience);
-      form.append('profession', _v.profession);
-      form.append('profile_desc', _v.profile_desc);
-      this.authService.signup(value).subscribe(
-        (data) => {
-          this.loading = false;
-          // console.log('register : ' + JSON.stringify(data))
-          // this.router.navigateByUrl("/mentor");
-          this.successMsg = 'Email verification link sent. Please check your e-mail.'
-        },
-        error => {
-          this.loading = false;
-          // console.log('err : ' + JSON.stringify(error))
-          if (error.status === 400) {
-            this.errorMsg = 'The email address you have entered is already associated with another account.';
-          } else if (error.status === 405) {
-            this.successMsg = 'Email verification link sent. Please check your e-mail.'
-          }
-        }
-      );
-      this.resetFields();
-    }
+    // this.loading = true;
+    // this.errorMsg = '';
+    // this.successMsg = '';
+    // this.formSubmitted = true;
+    // if (this.mentorForm.valid) {
+    //   const _v = this.mentorForm.value;
+    //   const form = new FormData();
+    //   form.append('user_name', _v.user_name);
+    //   form.append('mobile', _v.mobile);
+    //   form.append('email', _v.email);
+    //   form.append('skills', _v.skills);
+    //   form.append('experience', _v.experience);
+    //   form.append('profession', _v.profession);
+    //   form.append('profile_desc', _v.profile_desc);
+    //   this.authService.signup(value).subscribe(
+    //     (data) => {
+    //       this.loading = false;
+    //       // console.log('register : ' + JSON.stringify(data))
+    //       // this.router.navigateByUrl("/mentor");
+    //       this.successMsg = 'Email verification link sent. Please check your e-mail.'
+    //     },
+    //     error => {
+    //       this.loading = false;
+    //       // console.log('err : ' + JSON.stringify(error))
+    //       if (error.status === 400) {
+    //         this.errorMsg = 'The email address you have entered is already associated with another account.';
+    //       } else if (error.status === 405) {
+    //         this.successMsg = 'Email verification link sent. Please check your e-mail.'
+    //       }
+    //     }
+    //   );
+    //   this.resetFields();
+    // }
   }
 
   resetFields() {

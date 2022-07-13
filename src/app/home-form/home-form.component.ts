@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../shared/services/auth-service';
 import { HttpService } from '../shared/services/http.service';
 import { FirebaseService } from '../shared/services/firebase.service';
+import { FirebaseAuthService } from '../shared/services/firebase-auth.service';
 
 export interface CountryCodes {
   name: string;
@@ -40,7 +41,7 @@ export class HomeFormComponent implements OnInit {
     public router: Router,
     public http: HttpService,
     public httpClient: HttpClient,
-    public authService: AuthService,
+    public authService: FirebaseAuthService,
     public firebaseService: FirebaseService
   ) { }
 

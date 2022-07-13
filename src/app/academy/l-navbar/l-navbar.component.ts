@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth-service';
+import { FirebaseAuthService } from '../../shared/services/firebase-auth.service';
 
 @Component({
   selector: 'app-l-navbar',
@@ -13,7 +14,7 @@ export class LNavbarComponent implements OnInit {
   user: any;
   userDetails: any;
 
-  constructor(public router: Router, public authService: AuthService) { }
+  constructor(public router: Router, public authService: FirebaseAuthService) { }
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {

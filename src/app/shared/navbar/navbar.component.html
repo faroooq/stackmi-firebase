@@ -63,7 +63,7 @@
         </li>
       </ul>
       <div class="d-flex">
-        <!-- <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
           <div *ngIf="!authService.isLoggedIn()">
             <button [routerLink]="['/login']" type="button" class="btn me-md-3 btn--outline">
               Login
@@ -72,7 +72,7 @@
               SignUp
             </button>
           </div>
-        </div> -->
+        </div>
         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
           <div *ngIf="authService.isLoggedIn()">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0" style="margin-left: 0.6rem;">
@@ -80,18 +80,18 @@
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <span style="color: #5E17EB; font-size: 1.6rem;">Hi,&nbsp;</span>
-                  <span style="color: #5E17EB;">{{ userDetails.user_name }}&nbsp;</span>
+                  <span style="color: #5E17EB;">{{ userDetails?.displayName }}&nbsp;</span>
                   <i style="font-size: 1.4rem;" class="fa fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" [routerLink]="['/profile']">
+                    <a class="dropdown-item" [routerLink]="['profile']">
                       <i class="fas fa-user"></i>&nbsp;Profile</a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a class="dropdown-item" [routerLink]="['/updatepwd']">
                       <i class="fas fa-unlock-alt"></i>&nbsp;Password</a>
-                  </li>
+                  </li> -->
                   <li>
                     <a class="dropdown-item" (click)="signOut()">
                       <i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>

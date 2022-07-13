@@ -11,22 +11,21 @@
                   <div>{{ errorMsg }}</div>
                 </div>
               </div>
-              <!-- <div class="col-12 mb-4">
-                <button
-                  class="btn col-12 google-btn"
-                  (click)="authService.GoogleAuth()"
-                  type="submit"
-                >
-                  <img
-                    src="../../assets/images/googleLogin.png"
-                    alt="Login with Google"
-                    style="width: 55%; object-fit: cover"
-                  />
+              <!-- <div class="formGroup">
+                <button type="button" class="btn googleBtn" (click)="firebaseAuth.GoogleAuth()">
+                  <i class="fab fa-google-plus-g"></i>
+                  Log in with Google
+                </button>
+              </div> -->
+              <div class="col-12 mb-4">
+                <button class="btn col-12 google-btn" (click)="firebaseAuth.GoogleAuth()" type="submit">
+                  <img src="../../assets/images/googleLogin.png" alt="Login with Google"
+                    style="width: 55%; object-fit: cover" />
                 </button>
               </div>
               <div>
                 <p style="text-align: center">or</p>
-              </div> -->
+              </div>
               <h3 class="text-grey" style="text-align: center">
                 Log in to StackMi
               </h3>
