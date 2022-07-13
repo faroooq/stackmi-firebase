@@ -42,11 +42,11 @@
           <a style="color: #5E17EB;" routerLinkActive="active" class="nav-link anchor-hover"
             [routerLink]="['/academy']"><i class="fas fa-user-tie"></i>&nbsp;Academy</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="adminButton" class="nav-item">
           <a style="color: #5E17EB;" routerLinkActive="active" class="nav-link anchor-hover"
             [routerLink]="['/academy/new-article']"><i class="fas fa-user-tie"></i>&nbsp;New Article</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="adminButton" class="nav-item">
           <a [routerLink]="['/events/new-event']" style="color: #5E17EB;" routerLinkActive="active" class="nav-link">
             <i class="fas fa-calendar-check"></i>&nbsp;New Event</a>
         </li>

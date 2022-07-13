@@ -27,7 +27,7 @@ export class ArticleComponent implements OnInit {
   response: HighlightResult;
   articleUrl: string;
   articleImage: string;
-  adminButtons: boolean;
+  adminButton: boolean;
 
   constructor(
     public route: ActivatedRoute,
@@ -46,7 +46,7 @@ export class ArticleComponent implements OnInit {
       this.userDetails = this.authService.getUserDetails();
       // console.log(this.userDetails)
       if (this.userDetails.email === 'faroooq.in@gmail.com') {
-        this.adminButtons = true;
+        this.adminButton = true;
       }
     }
     this.route.params
