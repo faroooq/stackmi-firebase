@@ -92,7 +92,7 @@ export class EditArticleComponent {
       .subscribe(params => {
         this.firebaseService.getArticle(params.title).subscribe((article) => {
           this.loading = false;
-          this.article = article.data();
+          this.article = article[0];
           this.articleForm.get("article_name").setValue(this.article.article_name);
           this.articleForm.get("article_slug").setValue(this.article.article_slug);
           this.articleForm.get("article_image").setValue(this.article.article_image);

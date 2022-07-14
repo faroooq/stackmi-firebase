@@ -37,7 +37,9 @@ export class FirebaseService {
   }
 
   getArticle(articleId) {
-    return this.db.collection('articles').doc('' + articleId).get();
+    return this.db.collection('articles', (ref) =>
+      ref.where('article_slug', '==', articleId)
+    ).valueChanges();
   }
 
   getArticlesList(params) {
@@ -46,15 +48,15 @@ export class FirebaseService {
     ).valueChanges();
   }
 
-  searchUsers(searchValue) {
-    return this.db
-      .collection('users', (ref) =>
-        ref
-          .where('nameToSearch', '>=', searchValue)
-          .where('nameToSearch', '<=', searchValue + '\uf8ff')
-      )
-      .snapshotChanges();
-  }
+  // searchUsers(searchValue) {
+  //   return this.db
+  //     .collection('users', (ref) =>
+  //       ref
+  //         .where('nameToSearch', '>=', searchValue)
+  //         .where('nameToSearch', '<=', searchValue + '\uf8ff')
+  //     )
+  //     .snapshotChanges();
+  // }
 
   searchUsersByAge(value) {
     return this.db

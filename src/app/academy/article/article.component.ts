@@ -54,7 +54,7 @@ export class ArticleComponent implements OnInit {
         // this.articleUrl = environment.articleurl + params.title;
         this.firebaseService.getArticle(params.title).subscribe((article) => {
           this.loading = false;
-          this.article = article.data();
+          this.article = article[0];
         })
       })
   }

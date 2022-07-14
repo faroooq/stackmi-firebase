@@ -519,13 +519,14 @@ export class SeoGuard implements CanActivate {
                 },
             ]
             this.firebaseService.getArticle(route.params.title).subscribe((article) => {
-                let articleSEO: any = article.data();
-                if (route.params.title === articleSEO.article_slug) {
+                let articleSEO: any = article;
+                console.log(articleSEO)
+                if (route.params.title === articleSEO?.article_slug) {
                     this.seo
-                        .setTitle(articleSEO.article_name)
-                        .setMetaData(articleSEO.article_image ? articleSEO.article_image : environment.default_imageUrl, environment.articleurl + articleSEO.article_slug)
-                        .setDescription(articleSEO.article_seo_desc)
-                        .setKeywords(articleSEO.article_tags);
+                        .setTitle(articleSEO?.article_name)
+                        .setMetaData(articleSEO?.article_image ? articleSEO?.article_image : environment.default_imageUrl, environment.articleurl + articleSEO?.article_slug)
+                        .setDescription(articleSEO?.article_seo_desc)
+                        .setKeywords(articleSEO?.article_tags);
                 }
             })
         } else if (routeTitle === 'academy' || routeTitle === 'events') {
