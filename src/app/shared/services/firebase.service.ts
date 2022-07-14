@@ -39,7 +39,7 @@ export class FirebaseService {
   getArticle(articleId) {
     return this.db.collection('articles', (ref) =>
       ref.where('article_slug', '==', articleId)
-    ).valueChanges();
+    ).snapshotChanges();
   }
 
   getArticlesList(params) {

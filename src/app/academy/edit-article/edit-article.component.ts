@@ -28,6 +28,7 @@ export class EditArticleComponent {
   successMsg: string;
   loading: boolean;
   article: any;
+  articleId: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -90,9 +91,10 @@ export class EditArticleComponent {
   ngOnInit(): void {
     this.route.params
       .subscribe(params => {
-        this.firebaseService.getArticle(params.title).subscribe((article) => {
+        this.firebaseService.getArticle(params.title).subscribe((article: any) => {
           this.loading = false;
-          this.article = article[0];
+          this.article = article[0].payload.doc.data();
+          this.articleId = article[0].payload.doc.id;
           this.articleForm.get("article_name").setValue(this.article.article_name);
           this.articleForm.get("article_slug").setValue(this.article.article_slug);
           this.articleForm.get("article_image").setValue(this.article.article_image);
@@ -113,7 +115,7 @@ export class EditArticleComponent {
       form.append('article_tags', _v.article_tags);
       form.append('article_content', _v.article_content);
       form.append('article_seo_desc', _v.article_seo_desc);
-      this.firebaseService.updateArticle(value.article_slug, value).then(() => {
+      this.firebaseService.updateArticle(this.articleId, value).then(() => {
         console.log('Record updated')
       });
     }

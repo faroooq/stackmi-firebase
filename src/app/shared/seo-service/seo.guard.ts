@@ -519,8 +519,7 @@ export class SeoGuard implements CanActivate {
                 },
             ]
             this.firebaseService.getArticle(route.params.title).subscribe((article) => {
-                let articleSEO: any = article;
-                console.log(articleSEO)
+                let articleSEO: any = article[0].payload.doc.data();
                 if (route.params.title === articleSEO?.article_slug) {
                     this.seo
                         .setTitle(articleSEO?.article_name)
