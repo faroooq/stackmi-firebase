@@ -10,6 +10,8 @@ ng deploy
 
 npm run build:ssr
 
+ng deploy
+
 firebase init
 
 folder location: dist/browser
