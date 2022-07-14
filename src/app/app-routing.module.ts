@@ -64,7 +64,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
-    canActivate: [AuthGuard, SeoGuard],
+    canActivate: [SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',
@@ -75,7 +75,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent,
-    canActivate: [AuthGuard, SeoGuard],
+    canActivate: [SeoGuard],
     data: {
       title: 'StackMi Solutions - Live Online Courses',
       desc: 'StackMi Academy designed for everyone who wants to revamp their career with Live Sessions, Webinars, Documented Videos..',

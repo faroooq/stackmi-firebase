@@ -44,7 +44,10 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     setTimeout(() => {
-      this.authService.logout();
+      return this.authService.logout().then(() => {
+        localStorage.removeItem('user');
+        this.router.navigate(['login']);
+      });
     }, 1000);
   }
 }
