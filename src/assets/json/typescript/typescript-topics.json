@@ -1,7 +1,4 @@
 {
-    "_id": {
-        "$oid": "61e2c51b063dc3d6690082f3"
-    },
     "course_title": "Typescript Tutorial",
     "course_slug": "ts-intro",
     "course_list": [

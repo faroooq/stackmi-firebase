@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth-service';
 import { FirebaseAuthService } from '../services/firebase-auth.service';
@@ -14,7 +15,10 @@ export class NavbarComponent implements OnInit {
   userDetails: any;
   adminButton: boolean;
 
-  constructor(public router: Router, public authService: FirebaseAuthService) { }
+  constructor(
+    public router: Router,
+    public authService: FirebaseAuthService,
+    @Inject(PLATFORM_ID) private platformId: object) { }
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
@@ -45,7 +49,9 @@ export class NavbarComponent implements OnInit {
   signOut() {
     setTimeout(() => {
       return this.authService.logout().then(() => {
-        localStorage.removeItem('user');
+        if (isPlatformBrowser(this.platformId)) {
+          localStorage.removeItem('user');
+        }
         this.router.navigate(['login']);
       });
     }, 1000);

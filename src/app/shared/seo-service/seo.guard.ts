@@ -61,7 +61,7 @@ export class SeoGuard implements CanActivate {
             }
         } else if (routeTitle === 'article') {
             // NEED TO ADD ARTICLE OBJECT HERE & SITEMAP & SUBMIT URL.
-            const articlMetaSEO = [
+            const articleSEO: any = [
                 {
                     "seo_slug": "ts-intro",
                     "seo_title": "Introduction to Typescript",
@@ -518,36 +518,37 @@ export class SeoGuard implements CanActivate {
                     "seo_keywords": ""
                 },
             ]
-            this.firebaseService.getArticle(route.params.title).subscribe((article) => {
-                let articleSEO: any = article[0].payload.doc.data();
-                if (route.params.title === articleSEO?.article_slug) {
-                    this.seo
-                        .setTitle(articleSEO?.article_name)
-                        .setMetaData(articleSEO?.article_image ? articleSEO?.article_image : environment.default_imageUrl, environment.articleurl + articleSEO?.article_slug)
-                        .setDescription(articleSEO?.article_seo_desc)
-                        .setKeywords(articleSEO?.article_tags);
-                }
-            })
-        } else if (routeTitle === 'academy' || routeTitle === 'events') {
-            this.seo
-                .setTitle('StackMi ' + route.data.title)
-                .setMetaData(environment.default_imageUrl, environment.defaulturl + route.parent.url.toString())
-                .setDescription(route.data.desc)
-                .setKeywords(route.data['keywords']);
-        } else if (routeTitle === 'MD Farooq - Lead Software Analyst') {
-            this.seo
-                .setTitle(route.data.title)
-                .setMetaData(environment.my_imageUrl, environment.defaulturl + route.url.toString())
-                .setDescription(route.data.desc)
-                .setKeywords(route.data['keywords']);
-        } else {
-            // console.log('Inside else guard ' + route.data.desc)
-            this.seo
-                .setTitle(route.data.title)
-                .setMetaData(environment.default_imageUrl, environment.defaulturl + route.url.toString())
-                .setDescription(route.data.desc)
-                .setKeywords(route.data['keywords']);
+            // this.firebaseService.getArticle(route.params.title).subscribe((article) => {
+            //     let articleSEO: any = article[0].payload.doc.data();
+            if (route.params.title === articleSEO?.article_slug) {
+                this.seo
+                    .setTitle(articleSEO?.article_name)
+                    .setMetaData(articleSEO?.article_image ? articleSEO?.article_image : environment.default_imageUrl, environment.articleurl + articleSEO?.article_slug)
+                    .setDescription(articleSEO?.article_seo_desc)
+                    .setKeywords(articleSEO?.article_tags);
+                //     }
+                // })
+            } else if (routeTitle === 'academy' || routeTitle === 'events') {
+                this.seo
+                    .setTitle('StackMi ' + route.data.title)
+                    .setMetaData(environment.default_imageUrl, environment.defaulturl + route.parent.url.toString())
+                    .setDescription(route.data.desc)
+                    .setKeywords(route.data['keywords']);
+            } else if (routeTitle === 'MD Farooq - Lead Software Analyst') {
+                this.seo
+                    .setTitle(route.data.title)
+                    .setMetaData(environment.my_imageUrl, environment.defaulturl + route.url.toString())
+                    .setDescription(route.data.desc)
+                    .setKeywords(route.data['keywords']);
+            } else {
+                // console.log('Inside else guard ' + route.data.desc)
+                this.seo
+                    .setTitle(route.data.title)
+                    .setMetaData(environment.default_imageUrl, environment.defaulturl + route.url.toString())
+                    .setDescription(route.data.desc)
+                    .setKeywords(route.data['keywords']);
+            }
+            return true;
         }
-        return true;
     }
 }

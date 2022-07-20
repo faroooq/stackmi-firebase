@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Inject, Injectable, NgZone, PLATFORM_ID } from '@angular/core';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -6,6 +6,8 @@ import {
     AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { WindowService } from '../../shared/services/window-service';
 
 export interface User {
     uid: string;
@@ -20,22 +22,31 @@ export interface User {
 })
 export class FirebaseAuthService {
     userData: any; // Save logged in user data
+    windowRef: Window;
+
     constructor(
         public afs: AngularFirestore, // Inject Firestore service
         public afAuth: AngularFireAuth, // Inject Firebase auth service
         public router: Router,
-        public ngZone: NgZone // NgZone service to remove outside scope warning
+        public ngZone: NgZone, // NgZone service to remove outside scope warning
+        @Inject(PLATFORM_ID) private platformId: object,
+        windowRef: WindowService
     ) {
+        this.windowRef = windowRef.getWindow();
         /* Saving user data in localstorage when 
         logged in and setting up null when logged out */
         this.afAuth.authState.subscribe((user) => {
             if (user) {
                 this.userData = user;
-                localStorage.setItem('user', JSON.stringify(this.userData));
-                JSON.parse(localStorage.getItem('user')!);
+                if (isPlatformBrowser(this.platformId)) {
+                    localStorage.setItem('user', JSON.stringify(this.userData));
+                    JSON.parse(localStorage.getItem('user')!);
+                }
             } else {
-                localStorage.setItem('user', 'null');
-                JSON.parse(localStorage.getItem('user')!);
+                if (isPlatformBrowser(this.platformId)) {
+                    localStorage.setItem('user', 'null');
+                    JSON.parse(localStorage.getItem('user')!);
+                }
             }
         });
     }
@@ -50,7 +61,7 @@ export class FirebaseAuthService {
                 this.SetUserData(result.user);
             })
             .catch((error) => {
-                window.alert(error.message);
+                this.windowRef.alert(error.message);
             });
     }
     // Sign up with email/password
@@ -64,7 +75,7 @@ export class FirebaseAuthService {
                 this.SetUserData(result.user);
             })
             .catch((error) => {
-                window.alert(error.message);
+                this.windowRef.alert(error.message);
             });
     }
     // Send email verfificaiton when new user sign up
@@ -80,23 +91,27 @@ export class FirebaseAuthService {
         return this.afAuth
             .sendPasswordResetEmail(passwordResetEmail)
             .then(() => {
-                window.alert('Password reset email sent, check your inbox.');
+                this.windowRef.alert('Password reset email sent, check your inbox.');
             })
             .catch((error) => {
-                window.alert(error);
+                this.windowRef.alert(error);
             });
     }
     // Returns true when user is looged in and email is verified
     isLoggedIn(): boolean {
-        const user = JSON.parse(localStorage.getItem('user')!);
-        return user !== null && user.emailVerified !== false ? true : false;
+        if (isPlatformBrowser(this.platformId)) {
+            const user = JSON.parse(localStorage.getItem('user')!);
+            return user !== null && user.emailVerified !== false ? true : false;
+        }
     }
 
     getUserDetails() {
         if (this.isLoggedIn()) {
-            const user = JSON.parse(localStorage.getItem('user')!);
-            // console.log(user)
-            return user;
+            if (isPlatformBrowser(this.platformId)) {
+                const user = JSON.parse(localStorage.getItem('user')!);
+                // console.log(user)
+                return user;
+            }
         }
     }
     // Sign in with Google
@@ -118,7 +133,7 @@ export class FirebaseAuthService {
                 this.SetUserData(result.user);
             })
             .catch((error) => {
-                window.alert(error);
+                this.windowRef.alert(error);
             });
     }
     /* Setting up user data when sign in with username/password, 
@@ -142,8 +157,10 @@ export class FirebaseAuthService {
     // Sign out
     logout() {
         return this.afAuth.signOut().then(() => {
-            localStorage.removeItem('user');
-            this.router.navigate(['login']);
+            if (isPlatformBrowser(this.platformId)) {
+                localStorage.removeItem('user');
+                this.router.navigate(['login']);
+            }
         });
     }
 }
