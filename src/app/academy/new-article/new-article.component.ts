@@ -35,6 +35,7 @@ export class NewArticleComponent implements OnInit {
   ) {
     // ########QUILL-EDITOR########
     this.modules = {
+      syntax: true,
       'emoji-shortname': true,
       'emoji-textarea': false,
       'emoji-toolbar': true,

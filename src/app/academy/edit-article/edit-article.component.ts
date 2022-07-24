@@ -37,6 +37,7 @@ export class EditArticleComponent {
   ) {
     // ########QUILL-EDITOR########
     this.modules = {
+      syntax: true,
       'emoji-shortname': true,
       'emoji-textarea': false,
       'emoji-toolbar': true,

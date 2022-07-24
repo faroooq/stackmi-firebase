@@ -59,11 +59,13 @@
                                             <div class="form-group">
                                                 <label for="description" class="label">Description</label>
                                                 <quill-editor formControlName="article_content" name="article_content"
-                                                    trackChanges="all" [modules]="modules" [styles]="{height: '450px'}">
+                                                    trackChanges="all" syntax="true" theme="snow" [modules]="modules"
+                                                    [styles]="{height: '450px'}">
                                                 </quill-editor>
                                             </div>
                                             <!-- ########QUILL-EDITOR######## -->
                                         </div>
+
                                         <div class="col-12">
                                             <label style="margin-left: 1rem" class="mb-2">SEO Description
                                                 <sup><span style="color: #dc3545; font-size: 1rem"

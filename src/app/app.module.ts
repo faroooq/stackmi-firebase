@@ -17,6 +17,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FirebaseAuthService } from './shared/services/firebase-auth.service';
+import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [
@@ -39,12 +40,20 @@ import { FirebaseAuthService } from './shared/services/firebase-auth.service';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    HighlightModule
   ],
   exports: [
-    SharedModule
+    SharedModule,
+    HighlightModule
   ],
   providers: [
-    FirebaseAuthService
+    FirebaseAuthService,
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: <HighlightOptions>{
+        lineNumbers: true
+      }
+    }
   ],
   bootstrap: [AppComponent],
 })
