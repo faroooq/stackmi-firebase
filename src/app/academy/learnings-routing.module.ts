@@ -5,6 +5,7 @@ import { LearningsComponent } from './learnings.component';
 import { ArticleComponent } from './article/article.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { AlertGuard } from '../shared/seo-service/alert.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: 'new-article',
     component: NewArticleComponent,
+    canDeactivate: [AlertGuard]
   },
   {
     path: 'article/:title/edit',

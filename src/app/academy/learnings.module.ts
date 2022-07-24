@@ -11,6 +11,7 @@ import { CourseAddsComponent } from './course-adds/course-adds.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { QuillModule } from "ngx-quill";
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { AlertGuard } from '../shared/seo-service/alert.guard';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     EditArticleComponent,
   ],
   providers: [
+    AlertGuard
   ],
   imports: [
     CommonModule,
