@@ -5,6 +5,8 @@ import BlotFormatter from "quill-blot-formatter";
 import ImageCompress from 'quill-image-compress';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../../shared/services/firebase.service';
+import { Router } from '@angular/router';
+import { fromEvent, Subject, takeUntil } from 'rxjs';
 Quill.register("modules/blotFormatter", BlotFormatter);
 Quill.register('modules/imageCompress', ImageCompress);
 
@@ -15,7 +17,7 @@ Quill.register('modules/imageCompress', ImageCompress);
 })
 export class NewArticleComponent implements OnInit {
   modules = {};
-
+  private unsubscriber: Subject<void> = new Subject<void>();
   articleForm = this.formBuilder.group({
     article_name: new FormControl('', Validators.required),
     article_slug: new FormControl('', Validators.required),
@@ -85,6 +87,13 @@ export class NewArticleComponent implements OnInit {
   // ########QUILL-EDITOR########
 
   ngOnInit(): void {
+    history.pushState(null, '');
+    fromEvent(window, 'popstate').pipe(
+      takeUntil(this.unsubscriber)
+    ).subscribe((_) => {
+      history.pushState(null, '');
+      window.confirm("Are you sure, you want to discard the changes?");
+    });
   }
 
   onSubmit(value) {
@@ -105,5 +114,10 @@ export class NewArticleComponent implements OnInit {
       }
       );
     }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
   }
 }
