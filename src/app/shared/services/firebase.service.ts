@@ -28,10 +28,10 @@ export class FirebaseService {
     return this.db.collection('events').valueChanges();
   }
 
-  getEventDetails(eventId) {
+  getEventDetails(eventName) {
     return this.db
       .collection('events', (ref) =>
-        ref.where('event_name', '==', eventId)
+        ref.where('event_name', '==', eventName.id)
       )
       .valueChanges();
   }

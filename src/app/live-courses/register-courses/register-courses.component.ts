@@ -35,7 +35,7 @@ export class RegisterCoursesComponent implements OnInit {
   public sendCourse: Subject<string> = new Subject<string>();
   windowRef: Window;
   locationRef: Location;
-  coursesDetails: any[];
+  coursesDetails: any;
 
   constructor(
     public firebaseService: FirebaseService,
@@ -55,12 +55,13 @@ export class RegisterCoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.auth.isLoggedIn();
-    const eventId = this.activatedRoute.snapshot.paramMap.get('event_name');
-    console.log(eventId)
-    this.firebaseService.getEventDetails(eventId).subscribe((result) => {
-      this.loading = false;
-      this.coursesDetails = result;
-    });
+    this.activatedRoute.params.subscribe((data) => {
+      this.firebaseService.getEventDetails(data).subscribe((result) => {
+        this.loading = false;
+        this.event = result[0];
+        // console.log(this.event)
+      });
+    })
   }
 
   navigateToEvent(url) {

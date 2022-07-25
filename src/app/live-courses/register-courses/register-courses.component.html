@@ -6,7 +6,7 @@
         </h2>
     </header>
 </section>
-<app-course-enroll [notifier]="sendCourse"></app-course-enroll>
+<!-- <app-course-enroll [notifier]="sendCourse"></app-course-enroll> -->
 <section data-aos="fade-up">
     <div class="container grid grid--1x1" style="margin-top: 3rem">
         <header class="block__header hero__content">
@@ -21,10 +21,10 @@
                     <div style="font-weight: 500; margin-top: 5px;">Start Date: {{ event?.start_date }}</div>
                     <div style="font-weight: 500; margin-top: 5px;">End Date: &nbsp;&nbsp;{{ event?.end_date
                         }}</div>
-                    <div style="font-weight: 500; margin-top: 5px;">Course Fee:
+                    <!-- <div style="font-weight: 500; margin-top: 5px;">Course Fee:
                         <span class="badge badge--dull" style="padding: 1rem; font-size: 18px;">{{ event?.event_price
                             }}</span>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-12 col-md-6">
                     <div style="font-weight: 500; margin-top: 5px;">Timings: &nbsp;&nbsp;&nbsp; {{
@@ -32,10 +32,10 @@
                     </div>
                     <div style="font-weight: 500; margin-top: 5px;">Duration: &nbsp;&nbsp;&nbsp;{{
                         event?.duration }}</div>
-                    <button (click)="selectedCourse(event.event_name)" style="width: 100%;" class="btn btn--purple"
+                    <!-- <button (click)="selectedCourse(event.event_name)" style="width: 100%;" class="btn btn--purple"
                         type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
                         aria-controls="offcanvasWithBackdrop">Enroll
-                        Course</button>
+                        Course</button> -->
                 </div>
             </div>
             <hr />
@@ -57,7 +57,7 @@
         </header>
     </div>
 </section>
-<section class="block block--dark block-showcase" style="margin-top: 3rem">
+<!-- <section class="block block--dark block-showcase" style="margin-top: 3rem">
     <header class="block__header">
         <h2>How We Host Our Services?</h2>
     </header>
@@ -115,8 +115,8 @@
             </li>
         </ul>
     </div>
-</section>
-<div class="container">
+</section> -->
+<!-- <div class="container">
     <div class="callout callout--primary callout-signup">
         <div class="grid grid--1x2">
             <div class="callout__content">
@@ -127,5 +127,5 @@
             <a [routerLink]="['/mentor']" class="btn btn--theme btn--stretched">I Love to Mentor</a>
         </div>
     </div>
-</div>
+</div> -->
 <app-footer></app-footer>
