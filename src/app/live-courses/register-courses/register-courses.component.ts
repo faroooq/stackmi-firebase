@@ -56,7 +56,7 @@ export class RegisterCoursesComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.auth.isLoggedIn();
     this.activatedRoute.params.subscribe((data) => {
-      this.firebaseService.getEventDetails(data).subscribe((result) => {
+      this.firebaseService.getEventDetails(data.id).subscribe((result) => {
         this.loading = false;
         this.event = result[0];
         // console.log(this.event)

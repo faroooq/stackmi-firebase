@@ -31,7 +31,7 @@ export class FirebaseService {
   getEventDetails(eventName) {
     return this.db
       .collection('events', (ref) =>
-        ref.where('event_name', '==', eventName.id)
+        ref.where('event_name', '==', eventName)
       )
       .valueChanges();
   }

@@ -56,7 +56,6 @@ export class CourseEnrollComponent implements OnInit {
   getEventDetails(eventName) {
     this.user = this.auth.getUserDetails();
     this.loading = true;
-
     this.firebaseService.getEventDetails(eventName).subscribe((result) => {
       this.event = result[0];
       this.registerCourseForm.get('user_name')?.setValue(this.user?.user_name);

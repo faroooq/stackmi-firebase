@@ -45,73 +45,342 @@ var javaSeries = {
         },
         {
           "topic_id": "4",
-          "topic_slug": "java-string-interpolation",
-          "topic_name": "String Interpolation"
-        },
-        {
-          "topic_id": "5",
           "topic_slug": "java-first-program",
           "topic_name": "Java First Program"
         },
         {
-          "topic_id": "6",
+          "topic_id": "5",
           "topic_slug": "java-variables",
           "topic_name": "Java Variables"
         },
         {
-          "topic_id": "7",
+          "topic_id": "6",
           "topic_slug": "java-datatype-identifier",
           "topic_name": "Java Data types and Identifiers"
         },
         {
-          "topic_id": "8",
+          "topic_id": "7",
           "topic_slug": "java-static-initializer-block",
           "topic_name": "Java Static and Initializer Block"
         },
         {
-          "topic_id": "9",
+          "topic_id": "8",
           "topic_slug": "java-type-casting",
           "topic_name": "Java Type Casting"
         },
         {
-          "topic_id": "10",
+          "topic_id": "9",
           "topic_slug": "java-conditional-statement",
-          "topic_name": "Java Coditional Statement"
+          "topic_name": "Java Conditional Statement"
         },
         {
-          "topic_id": "11",
+          "topic_id": "10",
           "topic_slug": "java-switch-statement",
           "topic_name": "Java Switch Statement"
         },
         {
-          "topic_id": "12",
+          "topic_id": "11",
           "topic_slug": "java-loops",
           "topic_name": "Java Loops"
         },
         {
-          "topic_id": "13",
+          "topic_id": "12",
           "topic_slug": "java-break-statement",
           "topic_name": "Java Break, Continue Statement"
         },
         {
-          "topic_id": "14",
+          "topic_id": "13",
           "topic_slug": "java-operators",
           "topic_name": "Java Operators"
         },
         {
-          "topic_id": "15",
+          "topic_id": "14",
           "topic_slug": "java-array",
-          "topic_name": "Java Array"
+          "topic_name": "Java Arrays"
         },
         {
-          "topic_id": "16",
+          "topic_id": "15",
           "topic_slug": "java-objects",
           "topic_name": "Java Objects"
         },
         {
-          "topic_id": "17",
+          "topic_id": "16",
           "topic_slug": "java-command-args",
           "topic_name": "Java Command Line Arguments"
+        }
+      ]
+    },
+    {
+      "topic_list_id": "2",
+      "topic_title": "OOPS Concepts",
+      "topic_list": [
+        {
+          "topic_id": "1",
+          "topic_slug": "objects-classes",
+          "topic_name": "Objects and Classes"
+        },
+        {
+          "topic_id": "2",
+          "topic_slug": "java-methods",
+          "topic_name": "Java Methods"
+        },
+        {
+          "topic_id": "3",
+          "topic_slug": "java-pass-by-value",
+          "topic_name": "Java Pass By Value"
+        },
+        {
+          "topic_id": "4",
+          "topic_slug": "java-constructor",
+          "topic_name": "Constructor in Java"
+        },
+        {
+          "topic_id": "5",
+          "topic_slug": "java-modifiers",
+          "topic_name": "Java Modifiers"
+        },
+        {
+          "topic_id": "6",
+          "topic_slug": "java-inheritance",
+          "topic_name": "Java Inheritance"
+        },
+        {
+          "topic_id": "7",
+          "topic_slug": "java-aggregation",
+          "topic_name": "Java Aggregation"
+        },
+        {
+          "topic_id": "8",
+          "topic_slug": "java-method-overloading",
+          "topic_name": "Java Method Overloading"
+        },
+        {
+          "topic_id": "9",
+          "topic_slug": "java-method-overriding",
+          "topic_name": "Java Method Overriding"
+        },
+        {
+          "topic_id": "10",
+          "topic_slug": "java-runtime-polymorphism",
+          "topic_name": "Java Runtime Polymorphism"
+        },
+        {
+          "topic_id": "11",
+          "topic_slug": "java-this-keyword",
+          "topic_name": "Java this Keyword"
+        },
+        {
+          "topic_id": "12",
+          "topic_slug": "java-garbage-collection",
+          "topic_name": "Java Garbage Collection"
+        },
+        {
+          "topic_id": "13",
+          "topic_slug": "java-static",
+          "topic_name": "Static in Java"
+        },
+        {
+          "topic_id": "14",
+          "topic_slug": "java-final",
+          "topic_name": "Final in Java"
+        },
+        {
+          "topic_id": "15",
+          "topic_slug": "java-instaceof-operator",
+          "topic_name": "Java instanceof Operator"
+        },
+        {
+          "topic_id": "16",
+          "topic_slug": "java-package",
+          "topic_name": "Java Package"
+        },
+        {
+          "topic_id": "17",
+          "topic_slug": "java-sub-package-static-import",
+          "topic_name": "Java SubPackage and Static Import"
+        },
+        {
+          "topic_id": "18",
+          "topic_slug": "java-abstract-class",
+          "topic_name": "Java Abstract Class"
+        },
+        {
+          "topic_id": "19",
+          "topic_slug": "java-interface",
+          "topic_name": "Java Interface"
+        },
+        {
+          "topic_id": "20",
+          "topic_slug": "java-nested-classes",
+          "topic_name": "Java Nested Classes"
+        },
+        {
+          "topic_id": "21",
+          "topic_slug": "java-classes-interface",
+          "topic_name": "Java Classes and Interface"
+        }
+      ]
+    },
+    {
+      "topic_list_id": "3",
+      "topic_title": "String Handling",
+      "topic_list": [
+        {
+          "topic_id": "1",
+          "topic_slug": "java-string-intro",
+          "topic_name": "Introduction to String"
+        },
+        {
+          "topic_id": "2",
+          "topic_slug": "java-string-class-functions",
+          "topic_name": "String Class Functions"
+        },
+        {
+          "topic_id": "3",
+          "topic_slug": "java-stringbuffer-class",
+          "topic_name": "StringBuffer Class"
+        },
+        {
+          "topic_id": "4",
+          "topic_slug": "java-stringbuilder-class",
+          "topic_name": "StringBuilder Class"
+        },
+        {
+          "topic_id": "5",
+          "topic_slug": "java-string-tokenizer",
+          "topic_name": "Java String Tokenizer"
+        }
+      ]
+    },
+    {
+      "topic_list_id": "4",
+      "topic_title": "Exception Handling",
+      "topic_list": [
+        {
+          "topic_id": "1",
+          "topic_slug": "java-exceptions-intro",
+          "topic_name": "Introduction to Exceptions"
+        },
+        {
+          "topic_id": "2",
+          "topic_slug": "java-try-catch",
+          "topic_name": "try and catch block"
+        },
+        {
+          "topic_id": "3",
+          "topic_slug": "java-try-with-resources",
+          "topic_name": "try with resource statement"
+        },
+        {
+          "topic_id": "4",
+          "topic_slug": "java-throw-throws-finally",
+          "topic_name": "throw, throws and finally"
+        },
+        {
+          "topic_id": "5",
+          "topic_slug": "java-customized-exception",
+          "topic_name": "Java Customized Exception"
+        },
+        {
+          "topic_id": "6",
+          "topic_slug": "java-method-overriding-exception",
+          "topic_name": "Method Overriding with Exception"
+        },
+        {
+          "topic_id": "7",
+          "topic_slug": "java-chained-exceptions",
+          "topic_name": "Java Chained Exceptions"
+        }
+      ]
+    },
+    {
+      "topic_list_id": "5",
+      "topic_title": "Collection Framework",
+      "topic_list": [
+        {
+          "topic_id": "1",
+          "topic_slug": "java-collection-intro",
+          "topic_name": "Introduction to Java Collection"
+        },
+        {
+          "topic_id": "2",
+          "topic_slug": "java-collection-interface",
+          "topic_name": "Java Collection Interfaces"
+        },
+        {
+          "topic_id": "3",
+          "topic_slug": "java-collection-class",
+          "topic_name": "Java Collection Class"
+        },
+        {
+          "topic_id": "4",
+          "topic_slug": "java-iterator",
+          "topic_name": "Java Iterator and ListIterator"
+        },
+        {
+          "topic_id": "5",
+          "topic_slug": "java-arraylist",
+          "topic_name": "Java ArrayList"
+        },
+        {
+          "topic_id": "6",
+          "topic_slug": "java-linkedlist",
+          "topic_name": "Java LinkedList"
+        },
+        {
+          "topic_id": "7",
+          "topic_slug": "java-hashset",
+          "topic_name": "Java Hashset"
+        },
+        {
+          "topic_id": "8",
+          "topic_slug": "java-linked-hashset",
+          "topic_name": "Java LinkedHashset"
+        },
+        {
+          "topic_id": "9",
+          "topic_slug": "java-treeset",
+          "topic_name": "Java Treeset"
+        },
+        {
+          "topic_id": "10",
+          "topic_slug": "java-map-interface",
+          "topic_name": "Java Map Interface"
+        },
+        {
+          "topic_id": "11",
+          "topic_slug": "java-hashmap",
+          "topic_name": "Java Hashmap"
+        },
+        {
+          "topic_id": "12",
+          "topic_slug": "java-treemap",
+          "topic_name": "Java Treemap"
+        },
+        {
+          "topic_id": "13",
+          "topic_slug": "java-hashtable",
+          "topic_name": "Java HashTable"
+        },
+        {
+          "topic_id": "14",
+          "topic_slug": "java-collections",
+          "topic_name": "Java Collections Class"
+        },
+        {
+          "topic_id": "15",
+          "topic_slug": "java-comparable",
+          "topic_name": "Java Comparable"
+        },
+        {
+          "topic_id": "16",
+          "topic_slug": "java-comparator",
+          "topic_name": "Java Comparator"
+        },
+        {
+          "topic_id": "17",
+          "topic_slug": "java-legacy",
+          "topic_name": "Java Legacy Classes"
         }
       ]
     },
