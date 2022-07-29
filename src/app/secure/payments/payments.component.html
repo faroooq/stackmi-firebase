@@ -3,7 +3,8 @@
     <div class="before"></div>
     <div class="after"></div>
 </div>
-<section data-aos="fade-up" style="padding-top: 3rem; margin: 1rem; overflow: auto !important;">
+<section *ngIf="regUser.course_name" data-aos="fade-up"
+    style="padding-top: 3rem; margin: 1rem; overflow: auto !important;">
     <div class="card col-lg-8 mx-auto"
         style="margin-bottom: 3rem; background: #f2f6fb;padding: 2rem; box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;">
         <h3 style="font-weight: 400; text-align: left;">
