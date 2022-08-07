@@ -51,7 +51,20 @@
         text-align: left;">
                     Course Curriculum:
                 </div>
-                <div style="text-align: left; font-size: 20px;" [innerHtml]="event?.description">
+                <div *ngIf="event.event_name !== 'Full-stack AWS Developer Program'"
+                    style="text-align: left; font-size: 20px;" [innerHtml]="event?.description">
+                </div>
+                <div *ngIf="event.event_name === 'Full-stack AWS Developer Program'">
+                    <img src="../../../assets/images/full-stack/1.png" alt="">
+                    <img src="../../../assets/images/full-stack/2.png" alt="">
+                    <img src="../../../assets/images/full-stack/3.png" alt="">
+                    <img src="../../../assets/images/full-stack/4.png" alt="">
+                    <img src="../../../assets/images/full-stack/5.png" alt="">
+                    <img src="../../../assets/images/full-stack/6.png" alt="">
+                    <img src="../../../assets/images/full-stack/7.png" alt="">
+                    <img src="../../../assets/images/full-stack/8.png" alt="">
+                    <img src="../../../assets/images/full-stack/9.png" alt="">
+                    <img src="../../../assets/images/full-stack/10.png" alt="">
                 </div>
             </div>
         </header>
